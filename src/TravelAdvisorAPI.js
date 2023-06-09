@@ -37,7 +37,7 @@
 //   }
 // };
 import axios from 'axios';
-const a = 'https://travel-advisor.p.rapidapi.com/${type}/list-in-boundary'
+//const a = 'https://travel-advisor.p.rapidapi.com/${type}/list-in-boundary'
 
 export const getPlacesData = async (type, sw, ne) => {
   try {
@@ -49,7 +49,7 @@ export const getPlacesData = async (type, sw, ne) => {
         tr_latitude: ne.lat,
       },
       headers: {
-        'x-rapidapi-key': 'd16ff41b0amsh3c5764111a484c7p12adcfjsn97dbae9e7f45',
+        'x-rapidapi-key': process.env.REACT_APP_TRAVEL_ADVISOR_API_KEY,
         'x-rapidapi-host': 'travel-advisor.p.rapidapi.com',
       },
     });
