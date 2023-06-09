@@ -1,0 +1,48 @@
+.container {
+  padding: 25px;
+}
+
+.form-control {
+  margin: 8px;
+  min-width: 120px;
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+.loading {
+  height: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.list {
+  height: 75vh;
+  overflow: auto;
+}
+
+h2 {
+  font-size: 2rem;
+  font-weight: 400;
+  line-height: 1.235;
+  letter-spacing: 0.00735em;
+}
+
+label {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+select {
+  padding: 10px;
+  margin-top: 10px;
+  border: 2px solid rgb(122, 29, 209);
+  border-radius: 10px;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+select:focus {
+  border-color: rgb(104, 38, 132);
+}

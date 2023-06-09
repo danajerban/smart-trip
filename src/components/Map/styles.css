@@ -1,0 +1,9 @@
+.info-circle{
+  font-size: 20px;
+  color: purple;
+}
+
+.map-container {
+  height: 85vh;
+  width: 100%;
+}
