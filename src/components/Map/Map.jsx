@@ -1,34 +1,39 @@
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useState,useEffect, useRef } from "react";
+
 import {
   GoogleMap,
   InfoWindowF,
   MarkerF,
   useJsApiLoader,
 } from "@react-google-maps/api";
+
+import "@reach/combobox/styles.css";
 import { FaInfoCircle } from "react-icons/fa";
 import mapStyles from "./mapStyling";
 import "./styles.css";
-const Map = ({ coordinates, setCoordinates, setBounds, places }) => {
+const Map = ({ coordinates, setCoordinates, setBounds, places, selectedSearch }) => {
   const options = {
-    styles: mapStyles
-  }
+    styles: mapStyles,
+  };
   const containerStyle = {
     height: "85vh",
     width: "100%",
   };
   const center = { lat: 51.5084443515244, lng: -0.12495369221152451 };
 
-  const [selectedPlace, setSelectedPlace] = useState(undefined);
+  const [selectedMarker, setSelectedMarker] = useState(undefined);
 
   const { isLoaded } = useJsApiLoader({
     id: "google-map-script",
-    googleMapsApiKey: "YOUR_API_KEY",
+    libraries: ["places"],
+    googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
   });
   const [map, setMap] = useState(null);
+  const mapRef = React.useRef();
   const onLoad = useCallback(function callback(map) {
     const bounds = new window.google.maps.LatLngBounds();
     const padding = 0.1;
-    // Extend bounds
+    // Extend the bounds with additional latitude and longitude values
     bounds.extend(
       new window.google.maps.LatLng(center.lat + padding, center.lng + padding)
     );
@@ -45,15 +50,28 @@ const Map = ({ coordinates, setCoordinates, setBounds, places }) => {
       sw: { lat: sw.lat(), lng: sw.lng() },
     });
 
-    setMap(map);
+    mapRef.current = map;
   }, []);
+
+
+  const panTo = React.useCallback(({ lat, lng }) => {
+    mapRef.current.panTo({ lat, lng });
+    mapRef.current.setZoom(12);
+  }, []);
+
+  useEffect(() => {
+    if (selectedSearch && mapRef.current) {
+      panTo(selectedSearch);
+    }
+  }, [selectedSearch, panTo]);
+
   return isLoaded ? (
     <GoogleMap
       mapContainerStyle={containerStyle}
       center={center}
       zoom={14}
       onLoad={onLoad}
-    options={options}
+      options={options}
     >
       {places?.map((place) => (
         <MarkerF
@@ -63,17 +81,17 @@ const Map = ({ coordinates, setCoordinates, setBounds, places }) => {
             lng: Number(place.longitude),
           }}
           onClick={() => {
-            place === selectedPlace
-              ? setSelectedPlace(undefined)
-              : setSelectedPlace(place);
+            place === selectedMarker
+              ? setSelectedMarker(undefined)
+              : setSelectedMarker(place);
           }}
         />
       ))}
-      {selectedPlace && (
+      {selectedMarker && (
         <InfoWindowF
           position={{
-            lat: Number(selectedPlace.latitude),
-            lng: Number(selectedPlace.longitude),
+            lat: Number(selectedMarker.latitude),
+            lng: Number(selectedMarker.longitude),
           }}
           zIndex={1}
           options={{
@@ -82,15 +100,16 @@ const Map = ({ coordinates, setCoordinates, setBounds, places }) => {
               height: -40,
             },
           }}
-          onCloseClick={() => setSelectedPlace(undefined)}
+          onCloseClick={() => setSelectedMarker(undefined)}
         >
           <div>
-            <h3>{selectedPlace.name}</h3>
-            <p>{selectedPlace.address}</p>
+            <h3>{selectedMarker.name}</h3>
+            <p>{selectedMarker.address}</p>
           </div>
         </InfoWindowF>
       )}
     </GoogleMap>
+
   ) : (
     <></>
   );

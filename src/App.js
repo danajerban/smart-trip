@@ -12,6 +12,7 @@ function App() {
   const [bounds, setBounds] = useState({});
   const [type, setType] = useState("restaurants");
   const [loading, setLoading] = useState(false);
+  const [selectedSearch, setSelectedSearch] = useState(null);
 
   useEffect(() => {
     if (bounds.sw && bounds.ne) {
@@ -25,7 +26,10 @@ function App() {
 
   return (
     <>
-      <Header setCoordinates={setCoordinates} />
+      <Header
+        setCoordinates={setCoordinates}
+        setSelectedSearch={setSelectedSearch}
+      />
       <div className="main-container">
         <div className="list-container">
           <List
@@ -37,6 +41,7 @@ function App() {
         </div>
         <div className="map-container">
           <Map
+            selectedSearch={selectedSearch}
             setCoordinates={setCoordinates}
             setBounds={setBounds}
             coordinates={coordinates}
