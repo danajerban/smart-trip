@@ -14,14 +14,6 @@ function App() {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    navigator.geolocation.getCurrentPosition(
-      ({ coords: { latitude, longitude } }) => {
-        setCoordinates({ lat: latitude, lng: longitude });
-      }
-    );
-  }, []);
-
-  useEffect(() => {
     if (bounds.sw && bounds.ne) {
       setLoading(true);
       getPlacesData(type, bounds.sw, bounds.ne).then((data) => {

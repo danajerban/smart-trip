@@ -1,5 +1,3 @@
-//copy-pasted from "https://snazzymaps.com/" - nice google maps styling source
-
 export default [
   {
       "featureType": "landscape.man_made",
