@@ -29,7 +29,7 @@ const Map = ({
   const [center, setCenter] = useState(defaultCenter);
 
   const [selectedMarker, setSelectedMarker] = useState(undefined);
-
+//load map - important
   const { isLoaded } = useJsApiLoader({
     id: "google-map-script",
     libraries: ["places"],
@@ -38,7 +38,7 @@ const Map = ({
 
   const [map, setMap] = useState(null);
   const mapRef = useRef();
-
+//refer to docs from @react-google-maps-api
   const onUnmount = useCallback(function callback(map) {
     setMap(null);
   }, []);
@@ -62,7 +62,7 @@ const Map = ({
 
     const ne = bounds.getNorthEast();
     const sw = bounds.getSouthWest();
-
+//set bounds/coordinates to fetch data
     setCenter(defaultCenter);
     setCoordinates({ lat: defaultCenter.lat, lng: defaultCenter.lng });
     setBounds({
@@ -85,7 +85,7 @@ const Map = ({
         const bounds = mapRef.current.getBounds();
         const ne = bounds.getNorthEast();
         const sw = bounds.getSouthWest();
-
+//get the new bounds to fetch new data
         setCenter(newCenter);
         setCoordinates(newCenter);
         setBounds({

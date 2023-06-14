@@ -7,6 +7,7 @@ import List from "../components/List/List";
 import Map from "../components/Map/Map";
 
 function Explore() {
+  //explore is basically the "app" component of all the components that are in folders
   const [places, setPlaces] = useState([]);
   const [bounds, setBounds] = useState({});
   const [type, setType] = useState("restaurants");

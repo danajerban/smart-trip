@@ -10,12 +10,13 @@ function Chat() {
     setValue("");
     setCurrentTitle(null);
   };
-
+//the input in this component is a div not a button, beaware :)
   const handlePrevChatsClick = (uniqueTitle) => {
     setCurrentTitle(uniqueTitle);
     setMessage(null);
     setValue("");
   };
+  //made this in a single component - app was getting too big
 // TODO: change temperature to 0.2 to make it more focused answers not random - experiment at playground: https://platform.openai.com/playground
 // rough calc -> 100 tokens 75 words - 1 token 4 chars -> https://platform.openai.com/account/usage
   const getMessages = async () => {
@@ -35,7 +36,8 @@ function Chat() {
       );
       const data = await response.json();
       setMessage(data.choices[0].message);
-
+//this above is because the data from open ai comes in this form and we take the first choice which
+//is an object containing "user" & "content", in our case we need both of them
       console.log({value})
     } catch (error) {
       console.log(error);
@@ -48,7 +50,7 @@ function Chat() {
 
       if (!currentTitle && message && value) {
         setCurrentTitle(value);
-
+//to keep track of the titles
       }
 
     if (currentTitle && message && value) {
@@ -66,13 +68,15 @@ function Chat() {
         }
       ]);
     }
-    //setValue("")
+    //setValue("") -> this doesnt work due to feed not rendering properly, even though currentTitle is updated
+    //needs some work to perfect it :)
   }, [message, currentTitle]);
 
 
   //console.log({ message });
   //console.log({ previousChats });
-
+  
+//just need to filter the currentTitle
   const currentChat = previousChats.filter(
     (previousChat) => previousChat.title === currentTitle
   );

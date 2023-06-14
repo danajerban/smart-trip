@@ -12,7 +12,7 @@ function Navbar() {
       return true
     }
   }
-
+//the main component alongside map, due to the fact it has access to all routes
   return (
     <footer className='navbar'>
       <nav className='navbarNav'>

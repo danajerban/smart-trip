@@ -1,3 +1,4 @@
+//snazzymaps. com
 export default [
   {
       "featureType": "all",
