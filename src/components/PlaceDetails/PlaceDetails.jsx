@@ -1,12 +1,12 @@
 import React from "react";
 import { FaPhoneAlt, FaMapMarkerAlt } from "react-icons/fa";
-import "./styles.css";
+import styles from "./styles.module.css"
 
 const PlaceDetails = ({ place }) => {
   return (
-    <div className="place-card">
+    <div className={styles.placeCard}>
       <div
-        className="card-media"
+        className={styles.cardMedia}
         style={{
           backgroundImage: `url(${
             place.photo
@@ -16,36 +16,35 @@ const PlaceDetails = ({ place }) => {
         }}
         title={place.name}
       />
-      <div className="card-content">
-        <h2 className="place-name">{place.name}</h2>
-        <div className="flex-between">
-          <h3>Price</h3>
-          <h3>{place.price_level}</h3>
+      <div className={styles.cardContent}>
+        <h2 className={styles.placeName}>{place.name}</h2>
+        <div className={styles.flexBetween}>
+          
         </div>
-        <div className="flex-between">
+        <div className={styles.flexBetween}>
           <h3>Rating</h3>
           <h3>
             {place.rating} out of {place.num_reviews} reviews
           </h3>
         </div>
         {place?.cuisine?.map(({ name }) => (
-          <div key={name} className="chip">
+          <div key={name} className={styles.chip}>
             {name}
           </div>
         ))}
         {place?.address && (
-          <h4 className="subtitle flex-between">
+          <h4 className={`${styles.subtitle}, ${styles.flexBetween}`}>
             <FaMapMarkerAlt />
             {place.address}
           </h4>
         )}
         {place?.phone && (
-          <h4 className="spacing flex-between">
+          <h4 className={`${styles.spacing}, ${styles.flexBetween}`}>
             <FaPhoneAlt />
             {place.phone}
           </h4>
         )}
-        <div className="card-actions">
+        <div className={styles.cardActions}>
           <button onClick={() => window.open(place.web_url, "_blank")}>
             Trip Advisor
           </button>

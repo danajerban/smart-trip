@@ -1,19 +1,20 @@
-.nav-bar {
+.navBar {
   position: static;
   display: flex;
   justify-content: space-between;
-  background-color: rgb(122, 29, 209);
+  background-color: black;
   color: whitesmoke;
+  padding: 20px;
 }
 
-.nav-bar-search {
+.navBarSearch {
   display: flex;
   align-items: center;
 
 }
 
 
-.nav-bar-title {
+.navBarTitle {
   margin-left: 15px;
 }
 

@@ -1,50 +1,70 @@
-import React, { useCallback, useState,useEffect, useRef } from "react";
-
+import React, { useCallback, useState, useEffect, useRef } from "react";
 import {
   GoogleMap,
-  InfoWindowF,
-  MarkerF,
+  InfoWindow,
+  Marker,
   useJsApiLoader,
 } from "@react-google-maps/api";
-
 import "@reach/combobox/styles.css";
 import { FaInfoCircle } from "react-icons/fa";
 import mapStyles from "./mapStyling";
-import "./styles.css";
-const Map = ({ coordinates, setCoordinates, setBounds, places, selectedSearch }) => {
+import Styles from "./styles.module.css";
+
+const Map = ({
+  coordinates,
+  setCoordinates,
+  setBounds,
+  places,
+  selectedSearch,
+}) => {
   const options = {
     styles: mapStyles,
   };
   const containerStyle = {
-    height: "85vh",
+    height: "79vh",
     width: "100%",
   };
-  const center = { lat: 51.5084443515244, lng: -0.12495369221152451 };
+  //const defaultCenter = { lat: 51.5084443515244, lng: -0.12495369221152451 };
+  const defaultCenter = { lat: 52.52477179506519, lng: 13.397221820955055 };
+  const [center, setCenter] = useState(defaultCenter);
 
   const [selectedMarker, setSelectedMarker] = useState(undefined);
 
   const { isLoaded } = useJsApiLoader({
     id: "google-map-script",
     libraries: ["places"],
-    googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
+    googleMapsApiKey: "AIzaSyBBetlh9Nc08jRkyjst_5QbStBBuTKIBhk",
   });
+
   const [map, setMap] = useState(null);
-  const mapRef = React.useRef();
+  const mapRef = useRef();
+
+  const onUnmount = useCallback(function callback(map) {
+    setMap(null);
+  }, []);
+
   const onLoad = useCallback(function callback(map) {
     const bounds = new window.google.maps.LatLngBounds();
     const padding = 0.1;
-    // Extend the bounds with additional latitude and longitude values
     bounds.extend(
-      new window.google.maps.LatLng(center.lat + padding, center.lng + padding)
+      new window.google.maps.LatLng(
+        defaultCenter.lat + padding,
+        defaultCenter.lng + padding
+      )
     );
     bounds.extend(
-      new window.google.maps.LatLng(center.lat - padding, center.lng - padding)
+      new window.google.maps.LatLng(
+        defaultCenter.lat - padding,
+        defaultCenter.lng - padding
+      )
     );
     map.fitBounds(bounds);
+
     const ne = bounds.getNorthEast();
     const sw = bounds.getSouthWest();
 
-    setCoordinates({ lat: map.getCenter().lat(), lng: map.getCenter().lng() });
+    setCenter(defaultCenter);
+    setCoordinates({ lat: defaultCenter.lat, lng: defaultCenter.lng });
     setBounds({
       ne: { lat: ne.lat(), lng: ne.lng() },
       sw: { lat: sw.lat(), lng: sw.lng() },
@@ -53,14 +73,32 @@ const Map = ({ coordinates, setCoordinates, setBounds, places, selectedSearch })
     mapRef.current = map;
   }, []);
 
+  const panTo = useCallback(
+    ({ lat, lng }) => {
+      if (mapRef.current) {
+        const newCenter = { lat, lng };
+        const newZoom = 12;
 
-  const panTo = React.useCallback(({ lat, lng }) => {
-    mapRef.current.panTo({ lat, lng });
-    mapRef.current.setZoom(12);
-  }, []);
+        mapRef.current.panTo(newCenter);
+        mapRef.current.setZoom(newZoom);
+
+        const bounds = mapRef.current.getBounds();
+        const ne = bounds.getNorthEast();
+        const sw = bounds.getSouthWest();
+
+        setCenter(newCenter);
+        setCoordinates(newCenter);
+        setBounds({
+          ne: { lat: ne.lat(), lng: ne.lng() },
+          sw: { lat: sw.lat(), lng: sw.lng() },
+        });
+      }
+    },
+    [setCoordinates, setBounds]
+  );
 
   useEffect(() => {
-    if (selectedSearch && mapRef.current) {
+    if (selectedSearch) {
       panTo(selectedSearch);
     }
   }, [selectedSearch, panTo]);
@@ -69,12 +107,13 @@ const Map = ({ coordinates, setCoordinates, setBounds, places, selectedSearch })
     <GoogleMap
       mapContainerStyle={containerStyle}
       center={center}
-      zoom={14}
+      zoom={15}
       onLoad={onLoad}
       options={options}
+      onUnmount={onUnmount}
     >
       {places?.map((place) => (
-        <MarkerF
+        <Marker
           key={`0${place.name}`}
           position={{
             lat: Number(place.latitude),
@@ -88,7 +127,7 @@ const Map = ({ coordinates, setCoordinates, setBounds, places, selectedSearch })
         />
       ))}
       {selectedMarker && (
-        <InfoWindowF
+        <InfoWindow
           position={{
             lat: Number(selectedMarker.latitude),
             lng: Number(selectedMarker.longitude),
@@ -106,10 +145,9 @@ const Map = ({ coordinates, setCoordinates, setBounds, places, selectedSearch })
             <h3>{selectedMarker.name}</h3>
             <p>{selectedMarker.address}</p>
           </div>
-        </InfoWindowF>
+        </InfoWindow>
       )}
     </GoogleMap>
-
   ) : (
     <></>
   );

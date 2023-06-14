@@ -1,55 +1,37 @@
-import "./App.css";
-import React from "react";
-import { useEffect, useState } from "react";
-import { getPlacesData } from "./TravelAdvisorAPI";
-import Header from "./components/Header/Header";
-import List from "./components/List/List";
-import Map from "./components/Map/Map";
-
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
+import Navbar from './components/Navbar'
+import PrivateRoute from './components/PrivateRoute'
+import Explore from './pages/Explore'
+import Chat from './pages/Chat/Chat'
+import Home from './pages/Home'
+import Profile from './pages/Profile'
+import SignIn from './pages/SignIn'
+import SignUp from './pages/SignUp'
+import ForgotPassword from './pages/ForgotPassword'
 function App() {
-  const [places, setPlaces] = useState([]);
-  const [coordinates, setCoordinates] = useState({});
-  const [bounds, setBounds] = useState({});
-  const [type, setType] = useState("restaurants");
-  const [loading, setLoading] = useState(false);
-  const [selectedSearch, setSelectedSearch] = useState(null);
-
-  useEffect(() => {
-    if (bounds.sw && bounds.ne) {
-      setLoading(true);
-      getPlacesData(type, bounds.sw, bounds.ne).then((data) => {
-        setPlaces(data?.filter((place) => place.name && place.num_reviews > 0));
-        setLoading(false);
-      });
-    }
-  }, [type, bounds]);
-
+  
   return (
     <>
-      <Header
-        setCoordinates={setCoordinates}
-        setSelectedSearch={setSelectedSearch}
-      />
-      <div className="main-container">
-        <div className="list-container">
-          <List
-            places={places}
-            type={type}
-            setType={setType}
-            loading={loading}
-          />
-        </div>
-        <div className="map-container">
-          <Map
-            selectedSearch={selectedSearch}
-            setCoordinates={setCoordinates}
-            setBounds={setBounds}
-            coordinates={coordinates}
-            places={places}
-          />
-        </div>
-      </div>
+      <Router>
+        <Routes>
+        <Route path='/' element={<Home />} />
+          <Route path='/explore' element={<Explore />} />
+          <Route path='/chat' element={<Chat />} />
+          <Route path='/profile' element={<PrivateRoute />}>
+            <Route path='/profile' element={<Profile />} />
+          </Route>
+          <Route path='/sign-in' element={<SignIn />} />
+          <Route path='/sign-up' element={<SignUp />} />
+          <Route path='/forgot-password' element={<ForgotPassword />} />
+        </Routes>
+        <Navbar />
+      </Router>
+
+      <ToastContainer />
     </>
-  );
+  )
 }
-export default App;
+
+export default App

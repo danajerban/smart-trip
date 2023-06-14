@@ -1,19 +1,19 @@
 import React from "react";
 import PlaceDetails from "../PlaceDetails/PlaceDetails";
-import "./styles.css";
+import styles from "./styles.module.css"
 import Spinner from "../Spinner/Spinner";
 
-const List = ({ places, type, setType, loading }) => {
+const List = ({ places, type, setType, loading}) => {
   return (
-    <div className="container">
-      <h2>Restaurants, hotels & tourist attractions</h2>
+    <div className={styles.container}>
+      <h2 className={styles.hWhat}>What are you looking for ?</h2>
       {loading ? (
-        <div className="loading">
+        <div className={styles.loading}>
           <Spinner />
         </div>
       ) : (
         <>
-          <div className="form-control">
+          <div className={styles.formControl}>
             <label id="type"></label>
             <select value={type} onChange={(e) => setType(e.target.value)}>
               <option value="restaurants">Restaurants</option>
@@ -21,9 +21,9 @@ const List = ({ places, type, setType, loading }) => {
               <option value="attractions">Attractions</option>
             </select>
           </div>
-          <div className="list">
+          <div className={styles.list}>
             {places?.map((place, i) => (
-              <PlaceDetails place={place} key={i} />
+              <PlaceDetails place={place} key={i}/>
             ))}
           </div>
         </>

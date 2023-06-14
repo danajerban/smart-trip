@@ -3,11 +3,11 @@
   left: 15vw;
   top: 50vh;
   border: 5px solid #f3f3f3;
-  border-top: 5px solid rgb(122, 29, 209);
+  border-top: 5px solid rgba(255, 255, 255, 0.1);
   border-radius: 50%;
   width: 30px;
   height: 30px;
-  animation: spin 2s linear infinite;
+  animation: spin 1s linear infinite;
 }
 
 @keyframes spin {

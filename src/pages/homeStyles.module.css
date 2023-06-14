@@ -1,0 +1,66 @@
+
+
+.bodyHome {
+  background-color: black;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.flexHome {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: row nowrap;
+  min-height: 100vh;
+  min-width: 100%;
+  perspective: 2000px;
+  overflow: hidden;
+}
+
+.filterHome {
+  filter: brightness(100%) grayscale(0%) saturate(2) hue-rotate(10deg);
+}
+
+.earth {
+  width: 200px;
+  height: 200px;
+  background: url("https://www.publicdomainpictures.net/pictures/90000/velka/earth-map.jpg");
+  background-size: cover;
+  transform: rotate(-20deg) scale(2);
+  border-radius: 50%;
+  box-shadow: inset 50px -50px 120px black, inset 10px 10px 50px black, inset -10px -10px 50px black;
+  z-index: 100;
+  animation: backgroundposition 11s infinite linear;
+}
+
+.space {
+  position: absolute;
+  top: -130%;
+  left: -130%;
+  width: 300%;
+  height: 300vh;
+  opacity: 0.7;
+
+}
+
+@keyframes backgroundposition {
+  0% {
+      background-position: 0% 50%;
+  }
+  50% {
+      background-position: 100% 50%;
+  }
+  100% {
+      background-position: 200% 50%;
+  }
+}
+
+@keyframes rotate {
+  0% {
+      transform: rotatez(0);
+  }
+  100% {
+      transform: rotatez(360deg);
+  }
+}
