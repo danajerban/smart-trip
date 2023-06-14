@@ -2,7 +2,7 @@ import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyBAAgTVtg7EuMTTpnHu4yMIWJ5nnPWZj5A",
+  apiKey: process.env.REACT_APP_FIREBASE_FIRESTORE_KEY,
   authDomain: "smart-trip-7986c.firebaseapp.com",
   projectId: "smart-trip-7986c",
   storageBucket: "smart-trip-7986c.appspot.com",
