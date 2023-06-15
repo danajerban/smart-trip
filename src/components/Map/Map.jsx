@@ -33,7 +33,7 @@ const Map = ({
   const { isLoaded } = useJsApiLoader({
     id: "google-map-script",
     libraries: ["places"],
-    googleMapsApiKey: "GOOGLE_MAPS_API_KEY",
+    googleMapsApiKey: "AIzaSyA2QYxR3m8QTVrmpysT7DmOnmfCDjOT4as",
   });
 
   const [map, setMap] = useState(null);

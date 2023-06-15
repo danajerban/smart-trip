@@ -23,6 +23,7 @@ function Explore() {
     if (bounds.sw && bounds.ne) {
       setLoading(true);
       getPlacesData(type, bounds.sw, bounds.ne).then((data) => {
+        console.log(data?.filter((place) => place.name && place.num_reviews > 0));
         setPlaces(data?.filter((place) => place.name && place.num_reviews > 0));
         setLoading(false);
       });
