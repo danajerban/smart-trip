@@ -7,8 +7,8 @@
       "jsx": "react",             // use typescript to transpile jsx to js
       "target": "es5",            // specify ECMAScript target version
       "allowJs": true,
-      "strict": false        // allow a partial TypeScript and JavaScript codebase
-
+      "strict": false,
+      "allowSyntheticDefaultImports": true
   },
   "include": [
       "./src/"
