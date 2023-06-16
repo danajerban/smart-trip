@@ -25,5 +25,5 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["src"]
+  "include": ["src", "src/components", "src/assets/svg/custom.d.ts", "src/assets/svg"]
 }
