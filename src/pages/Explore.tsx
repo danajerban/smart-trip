@@ -8,6 +8,7 @@ function Explore() {
   //explore is basically the "app" component of all the components that are in folders
   const [places, setPlaces] = useState([]);
   const [bounds, setBounds] = useState({});
+  const [coordinates, setCoordinates] = useState({});
   const [type, setType] = useState("restaurants");
   const [loading, setLoading] = useState(false);
   const [selectedSearch, setSelectedSearch] = useState(null);
@@ -41,7 +42,6 @@ function Explore() {
         </div>
         <div className="explore-map-container">
           <Map
-
             selectedSearch={selectedSearch}
             setCoordinates={setCoordinates}
             setBounds={setBounds}
