@@ -1,5 +1,3 @@
-// import "../index.css";
-import React from "react";
 import { useEffect, useState } from "react";
 import { getPlacesData } from "../TravelAdvisorAPI";
 import Header from "../components/Header/Header";
@@ -14,11 +12,7 @@ function Explore() {
   const [type, setType] = useState("restaurants");
   const [loading, setLoading] = useState(false);
   const [selectedSearch, setSelectedSearch] = useState(null);
-
-  //const [selectedPlaceId, setSelectedPlaceId] = useState(null);
-
-
-
+  const [coordinates, setCoordinates] = useState({});
 
   useEffect(() => {
     if (bounds.sw && bounds.ne) {

@@ -27,12 +27,46 @@ const Map = (
     const defaultCenter = { lat: 52.52477179506519, lng: 13.397221820955055 };
     const [center, setCenter] = useState(defaultCenter);
 
-    const [selectedMarker, setSelectedMarker] = useState(undefined);
-    //load map - important
-    const { isLoaded } = useJsApiLoader({
-      id: 'google-map-script',
-      libraries: ['places'],
-      googleMapsApiKey: 'GOOGLE_MAPS_API_KEY',
+  const [selectedMarker, setSelectedMarker] = useState(undefined);
+//load map - important
+  const { isLoaded } = useJsApiLoader({
+    id: "google-map-script",
+    libraries: ["places"],
+    googleMapsApiKey: "AIzaSyA2QYxR3m8QTVrmpysT7DmOnmfCDjOT4as",
+  });
+
+  const [map, setMap] = useState(null);
+  const mapRef = useRef();
+//refer to docs from @react-google-maps-api
+  const onUnmount = useCallback(function callback(map) {
+    setMap(null);
+  }, []);
+
+  const onLoad = useCallback(function callback(map) {
+    const bounds = new window.google.maps.LatLngBounds();
+    const padding = 0.1;
+    bounds.extend(
+      new window.google.maps.LatLng(
+        defaultCenter.lat + padding,
+        defaultCenter.lng + padding
+      )
+    );
+    bounds.extend(
+      new window.google.maps.LatLng(
+        defaultCenter.lat - padding,
+        defaultCenter.lng - padding
+      )
+    );
+    map.fitBounds(bounds);
+
+    const ne = bounds.getNorthEast();
+    const sw = bounds.getSouthWest();
+//set bounds/coordinates to fetch data
+    setCenter(defaultCenter);
+    setCoordinates({ lat: defaultCenter.lat, lng: defaultCenter.lng });
+    setBounds({
+      ne: { lat: ne.lat(), lng: ne.lng() },
+      sw: { lat: sw.lat(), lng: sw.lng() },
     });
 
     const [map, setMap] = useState(null);

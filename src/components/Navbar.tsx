@@ -1,18 +1,18 @@
 import { useNavigate, useLocation } from 'react-router-dom'
 import { ReactComponent as ShareIcon } from '../assets/svg/shareIcon.svg'
-import { ReactComponent as ExploreIcon } from '../assets/svg/exploreIcon.svg'
-import { ReactComponent as PersonOutlineIcon } from '../assets/svg/personOutlineIcon.svg'
+import { ReactComponent as ExploreIcon} from '../assets/svg/exploreIcon.svg'
+import { ReactComponent as PersonOutlineIcon} from '../assets/svg/personOutlineIcon.svg'
 
 function Navbar() {
   const navigate = useNavigate()
   const location = useLocation()
 
-  const pathMatchRoute = (route) => {
+  const pathMatchRoute = (route: string) => {
     if (route === location.pathname) {
       return true
     }
   }
-//the main component alongside map, due to the fact it has access to all routes
+
   return (
     <footer className='navbar'>
       <nav className='navbarNav'>
