@@ -11,6 +11,10 @@ app.use(cors());
 app.use(express.json());
 app.use(router);
 
+router.get('*', (_req: express.Request, res: express.Response) => {
+  res.status(404).send('Route not found');
+});
+
 app.listen(PORT, HOST, () => {
   console.log(`Server running at http://${HOST}:${PORT}`);
 });
