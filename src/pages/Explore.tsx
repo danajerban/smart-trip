@@ -3,6 +3,7 @@ import { getPlacesData } from "../TravelAdvisorAPI";
 import Header from "../components/Header/Header";
 import List from "../components/List/List";
 import Map from "../components/Map/Map";
+import { Coordinates } from "../types";
 
 function Explore() {
   //explore is basically the "app" component of all the components that are in folders
@@ -11,8 +12,7 @@ function Explore() {
   const [coordinates, setCoordinates] = useState({});
   const [type, setType] = useState("restaurants");
   const [loading, setLoading] = useState(false);
-  const [selectedSearch, setSelectedSearch] = useState(null);
-  const [coordinates, setCoordinates] = useState({});
+  const [selectedSearch, setSelectedSearch] = useState<Coordinates | null>(null);
 
   useEffect(() => {
     if (bounds.sw && bounds.ne) {

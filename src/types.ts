@@ -114,4 +114,10 @@ export interface Place {
       name?: string;
     }[];
   }
-  
+
+export type Type = 'restaurants' | 'hotels' | 'attractions'
+
+export interface Coordinates {
+  lat: number
+  lng: number
+}

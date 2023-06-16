@@ -2,13 +2,19 @@ import usePlacesAutocomplete, {
   getGeocode,
   getLatLng,
 } from "use-places-autocomplete";
-import { useState, ChangeEvent } from "react";
+import { useState, ChangeEvent, SetStateAction } from "react";
 import styles from "./styles.module.css";
+import { Coordinates } from "@/src/types";
 
 type Suggestion = google.maps.places.AutocompletePrediction
 
-const Search = ({ setCoordinates, setSelectedSearch }) => {
+type SearchParams = {
+  setCoordinates: React.Dispatch<SetStateAction<Coordinates>>
+  setSelectedSearch: React.Dispatch<SetStateAction<Coordinates | null>>
+}
 
+const Search = ({ setCoordinates, setSelectedSearch }: SearchParams) => {
+  console.log('HERE');
   const [currIndex, setCurrIndex] = useState<number | null>(null);
   
   const {
@@ -30,18 +36,21 @@ const Search = ({ setCoordinates, setSelectedSearch }) => {
     setValue(e.target.value)
   };
 
-  const handleSelect = ({description}: Suggestion) => () => {
+  const handleSelect = ({description}: Suggestion) => {
     setValue(description, false);
     dismissSuggestions();
-    // const address = description;
-    // try {
-    //   const results = await getGeocode({ address });
-    //   const { lat, lng } = getLatLng(results[0]);
-    //   setSelectedSearch({ lat, lng });
-    //   setCoordinates({ lat, lng });
-    // } catch (error) {
-    //   console.error("Error: ", error);
-    // }
+    const getCoordinates = async () => {
+      try {
+        const results = await getGeocode( { address: description });
+        console.log(results)
+        const { lat, lng } = getLatLng(results[0]);
+        setSelectedSearch({ lat, lng });
+        setCoordinates({ lat, lng });
+      } catch (error) {
+        console.error("Error: ", error);
+      }
+    }
+    getCoordinates();
   };
 
   const renderSuggestions = (): JSX.Element => {
@@ -50,12 +59,11 @@ const Search = ({ setCoordinates, setSelectedSearch }) => {
         place_id,
         structured_formatting: { main_text, secondary_text},
       } = suggestion;
-
       return (
         <li 
           key={place_id}
           id={`list-item-${idx}`}
-          onClick={handleSelect(suggestion)}
+          onClick={() => handleSelect(suggestion)}
           role="option"
           aria-selected={idx === currIndex}
         >
