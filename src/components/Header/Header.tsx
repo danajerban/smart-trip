@@ -1,8 +1,12 @@
-import React, { useState } from "react";
 import styles from "./styles.module.css"
 import { useNavigate } from "react-router-dom";
 import Search from "../Search/Search";
 import { ReactComponent as HomeIcon } from '../../assets/svg/homeIcon.svg'
+
+type HeaderProps = {
+  setCoordinates =
+}
+
 
 const Header = ({ setCoordinates, setSelectedSearch }) => {
   const navigate = useNavigate()

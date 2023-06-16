@@ -1,8 +1,12 @@
-import React from "react";
 import { FaPhoneAlt, FaMapMarkerAlt } from "react-icons/fa";
 import styles from "./styles.module.css"
+import { Place } from "@/src/types";
+type PlaceDetailsProps = {
+  place: Place
+}
 
-const PlaceDetails = ({ place }) => {
+const PlaceDetails = ({ place }: PlaceDetailsProps) => {
+
   return (
     <div className={styles.placeCard}>
       <div

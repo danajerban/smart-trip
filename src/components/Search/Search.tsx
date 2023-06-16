@@ -82,7 +82,7 @@ const Search = ({ setCoordinates, setSelectedSearch }) => {
         type="text"
         className={styles.input}
       />
-      {(
+      {status === "OK" && (
         <>
           <ul
             id="list-box"
