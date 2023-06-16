@@ -7,12 +7,12 @@ function Navbar() {
   const navigate = useNavigate()
   const location = useLocation()
 
-  const pathMatchRoute = (route) => {
+  const pathMatchRoute = (route: string) => {
     if (route === location.pathname) {
       return true
     }
   }
-//the main component alongside map, due to the fact it has access to all routes
+
   return (
     <footer className='navbar'>
       <nav className='navbarNav'>
