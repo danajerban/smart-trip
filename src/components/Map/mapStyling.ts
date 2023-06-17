@@ -1,5 +1,5 @@
 //snazzymaps. com
-export default [
+export const mapStyling = [
   {
       "featureType": "all",
       "elementType": "labels.text.fill",

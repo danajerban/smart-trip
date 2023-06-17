@@ -11,6 +11,7 @@ import { db } from '../firebase.config'
 import OAuth from '../components/OAuth'
 import { ReactComponent as ArrowRightIcon } from '../assets/svg/keyboardArrowRightIcon.svg'
 import visibilityIcon from '../assets/svg/visibilityIcon.svg'
+import { UserData } from '../types'
 
 function SignUp() {
   const [showPassword, setShowPassword] = useState(false)
@@ -23,14 +24,14 @@ function SignUp() {
 
   const navigate = useNavigate()
 
-  const onChange = (e) => {
+  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData((prevState) => ({
       ...prevState,
       [e.target.id]: e.target.value,
     }))
   }
 
-  const onSubmit = async (e) => {
+  const onSubmit = async (e: React.SyntheticEvent<HTMLFormElement>) => {
     e.preventDefault()
 
     try {
@@ -41,21 +42,25 @@ function SignUp() {
         email,
         password
       )
-
+      
       const user = userCredential.user
+      
+      if ( auth.currentUser) {
+        updateProfile(auth.currentUser, {
+          displayName: name,
+        })
+      } else {
+        toast.error('Something went wrong with registration')
+      }
 
-      updateProfile(auth.currentUser, {
-        displayName: name,
-      })
+      const userData: UserData = { name: formData.name, email: formData.email}
+      userData.timestamp = serverTimestamp()
 
-      const formDataCopy = { ...formData }
-      delete formDataCopy.password
-      formDataCopy.timestamp = serverTimestamp()
+      await setDoc(doc(db, 'users', user.uid), userData)
 
-      await setDoc(doc(db, 'users', user.uid), formDataCopy)
-
-      navigate('/')
+      navigate('/');
     } catch (error) {
+      console.log(error)
       toast.error('Something went wrong with registration')
     }
   }
@@ -117,7 +122,7 @@ function SignUp() {
 
         <OAuth />
 
-        <Link to='/sign-in' className='registerLink'>
+        <Link to='/sign-in' className='forgotPasswordLink'>
           Sign In Instead
         </Link>
       </div>

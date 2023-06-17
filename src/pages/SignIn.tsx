@@ -16,14 +16,14 @@ function SignIn() {
 
   const navigate = useNavigate()
 
-  const onChange = (e) => {
+  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData((prevState) => ({
       ...prevState,
       [e.target.id]: e.target.value,
     }))
   }
 
-  const onSubmit = async (e) => {
+  const onSubmit = async (e: React.SyntheticEvent<HTMLFormElement>) => {
     e.preventDefault()
 
     try {
@@ -92,8 +92,8 @@ function SignIn() {
 
         <OAuth />
 
-        <Link to='/sign-up' className='registerLink'>
-          Sign Up Instead
+        <Link to='/sign-up' className='forgotPasswordLink'>
+          <p className='signInText'>Sign Up Instead</p>
         </Link>
       </div>
     </>
