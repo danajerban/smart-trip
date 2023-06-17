@@ -1,22 +1,28 @@
-import React, { useCallback, useState, useEffect, useRef } from 'react';
+import { useCallback, useState, useEffect, useRef, SetStateAction, useMemo } from 'react';
 import {
   GoogleMap,
   InfoWindow,
   Marker,
   useJsApiLoader,
 } from '@react-google-maps/api';
-import '@reach/combobox/styles.css';
-import mapStyles from './mapStyling';
+import { mapStyling } from './mapStyling';
+import { Coordinates, Place, Bounds } from '@/src/types';
+
+type MapProps = {
+  setCoordinates: React.Dispatch<SetStateAction<Coordinates>>,
+  setBounds: React.Dispatch<SetStateAction<Bounds>>,
+  places: Place[],
+  selectedSearch: Coordinates | null
+}
 
 const Map = ({
-  coordinates,
   setCoordinates,
   setBounds,
   places,
   selectedSearch,
-}) => {
+}: MapProps) => {
   const options = {
-    styles: mapStyles,
+    styles: mapStyling,
   };
 
   const containerStyle = {
@@ -24,26 +30,27 @@ const Map = ({
     width: '100%',
   };
 
-  const defaultCenter = { lat: 52.52477179506519, lng: 13.397221820955055 };
+  const defaultCenter = useMemo(() => ({ lat: 52.52477179506519, lng: 13.397221820955055 }),[]);
   const [center, setCenter] = useState(defaultCenter);
-  const [selectedMarker, setSelectedMarker] = useState(undefined);
+  const [selectedMarker, setSelectedMarker] = useState<Place | undefined>(undefined);
 
   const { isLoaded } = useJsApiLoader({
     id: 'google-map-script',
     libraries: ['places'],
-    googleMapsApiKey: 'YOUR_API_KEY',
+    googleMapsApiKey: 'AIzaSyBJaDkaLJDA24bXZuvfpRgwIEwzvu5o5KA',
   });
 
   const [map, setMap] = useState(null);
-  const mapRef = useRef();
+  const mapRef = useRef<google.maps.Map | null>(null);
 
-  const onUnmount = useCallback(function callback(map) {
+  const onUnmount = useCallback(function callback() {
     setMap(null);
   }, []);
 
   const onLoad = useCallback(
-    function callback(map) {
+    function callback(map: google.maps.Map) {
       const bounds = new window.google.maps.LatLngBounds();
+      console.log(bounds)
       const padding = 0.1;
       bounds.extend(
         new window.google.maps.LatLng(
@@ -69,14 +76,17 @@ const Map = ({
         sw: { lat: sw.lat(), lng: sw.lng() },
       });
 
+      console.log({ne: { lat: ne.lat(), lng: ne.lng() },
+      sw: { lat: sw.lat(), lng: sw.lng() }})
+
       mapRef.current = map;
     },
     [defaultCenter, setCoordinates, setBounds]
   );
 
   const panTo = useCallback(
-    ({ lat, lng }) => {
-      if (mapRef.current) {
+    ({ lat, lng }: Coordinates) => {
+      if (mapRef.current !== null) {
         const newCenter = { lat, lng };
         const newZoom = 12;
 
@@ -84,8 +94,8 @@ const Map = ({
         mapRef.current.setZoom(newZoom);
 
         const bounds = mapRef.current.getBounds();
-        const ne = bounds.getNorthEast();
-        const sw = bounds.getSouthWest();
+        const ne = bounds!.getNorthEast();
+        const sw = bounds!.getSouthWest();
 
         setCenter(newCenter);
         setCoordinates(newCenter);
@@ -135,11 +145,9 @@ const Map = ({
           }}
           zIndex={1}
           options={{
-            pixelOffset: {
-              width: 0,
-              height: -40,
-            },
-          }}
+            pixelOffset: new google.maps.Size(0, -40)
+            }
+          }
           onCloseClick={() => setSelectedMarker(undefined)}
         >
           <div>

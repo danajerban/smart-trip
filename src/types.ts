@@ -1,123 +1,125 @@
 export interface Place {
-    location_id?: string;
-    name?: string;
-    latitude?: string;
-    longitude?: string;
-    num_reviews?: string;
-    timezone?: string;
-    location_string?: string;
-    photo?: {
-      images: {
-        small: {
-          width: string;
-          url: string;
-          height: string;
-        };
-        thumbnail: {
-          width: string;
-          url: string;
-          height: string;
-        };
-        original: {
-          width: string;
-          url: string;
-          height: string;
-        };
-        large: {
-          width: string;
-          url: string;
-          height: string;
-        };
-        medium: {
-          width: string;
-          url: string;
-          height: string;
-        };
-      };
-      is_blessed?: boolean;
-      uploaded_date?: string;
-      caption?: string;
-      id?: string;
-      helpful_votes?: string;
-      published_date?: string;
-      user?: {
-        user_id?: null;
-        member_id?: string;
-        type?: string;
-      };
-    };
-    awards?: any[];
-    doubleclick_zone?: string;
-    preferred_map_engine?: string;
-    raw_ranking?: string;
-    ranking_geo?: string;
-    ranking_geo_id?: string;
-    ranking_position?: string;
-    ranking_denominator?: string;
-    ranking_category?: string;
-    ranking?: string;
-    distance?: string;
-    distance_string?: string | null;
-    bearing?: string;
-    rating?: string;
-    is_closed?: boolean;
-    open_now_text?: string;
-    is_long_closed?: boolean;
-    price_level?: string;
-    price?: string;
-    description?: string;
-    web_url?: string;
-    write_review?: string;
-    ancestors?: {
-      category?: {
-        subcategory?: {
-          name?: string;
-          abbrv?: null;
-          location_id?: string;
-        }[];
-      };
+  address: string;
+  address_obj: {
+    city: string;
+    country: string;
+    postalcode: string;
+    state: null | string;
+    street1: string;
+    street2: null | string;
+  };
+  ancestors: {
+    abbrv: null;
+    location_id: string;
+    name: string;
+    subcategory: {
+      key: string
+      , name: string
     }[];
-    category?: {
-      key?: string;
-      name?: string;
-      subcategory?: {
-        parent_display_name?: string;
-        is_jfy_enabled?: boolean;
+  }[];
+  awards: any[]; // Update the type if you have information about the structure
+  bearing: string;
+  category: {
+    key: string;
+    name: string;
+  };
+  cuisine: {
+    key: string;
+    name: string;
+  }[];
+  description: string;
+  dietary_restrictions: {
+    key: string;
+    name: string;
+  }[];
+  distance: string;
+  distance_string: string;
+  doubleclick_zone: string;
+  establishment_types: {
+    key: string;
+    name: string;
+  }[];
+  is_candidate_for_contact_info_suppression: boolean;
+  is_closed: boolean;
+  is_jfy_enabled: boolean;
+  is_long_closed: boolean;
+  latitude: string;
+  location_id: string;
+  location_string: string;
+  longitude: string;
+  name: string;
+  nearest_metro_station: any[]; // Update the type if you have information about the structure
+  num_reviews: string;
+  parent_display_name: string;
+  phone: string;
+  photo: {
+    caption: string;
+    helpful_votes: string;
+    id: string;
+    images: {
+      large: {
+        height: string;
+        url: string;
+        width: string;
+      };
+      medium: {
+        height: string;
+        url: string;
+        width: string;
+      };
+      original: {
+        height: string;
+        url: string;
+        width: string;
+      };
+      small: {
+        height: string;
+        url: string;
+        width: string;
+      };
+      thumbnail: {
+        height: string;
+        url: string;
+        width: string;
       };
     };
-    nearest_metro_station?: string;
-    phone?: string;
-    website?: string;
-    email?: string;
-    address_obj?: {
-      street1?: string;
-      street2?: string | null;
-      city?: string;
-      state?: string | null;
-      country?: string;
-      postalcode?: string;
+    is_blessed: boolean;
+    published_date: string;
+    uploaded_date: string;
+    user: {
+      member_id: string;
+      type: string;
+      user_id: null;
     };
-    address?: string;
-    hours?: {
-      week_ranges?: {
-        timezone?: string;
-      }[];
-    };
-    is_candidate_for_contact_info_suppression?: boolean;
-    cuisine?: {
-      key?: string;
-      name?: string;
-    }[];
-    dietary_restrictions?: any[];
-    establishment_types?: {
-      key?: string;
-      name?: string;
-    }[];
-  }
+  };
+  preferred_map_engine: string;
+  price_level: string;
+  ranking: string;
+  ranking_category: string;
+  ranking_denominator: string;
+  ranking_geo: string;
+  ranking_geo_id: string;
+  ranking_position: string;
+  rating: string;
+  raw_ranking: string;
+  subcategory: {
+    key: string,
+    name: string
+  }[]; 
+  timezone: string;
+  web_url: string;
+  website: string;
+  write_review: string;
+}
 
 export type Type = 'restaurants' | 'hotels' | 'attractions'
 
 export interface Coordinates {
   lat: number
   lng: number
+}
+
+export interface Bounds {
+  ne: { lat: number, lng: number },
+  sw: { lat: number, lng: number },
 }

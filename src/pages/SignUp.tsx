@@ -1,45 +1,62 @@
 import { useState } from 'react'
-import { toast } from 'react-toastify'
 import { Link, useNavigate } from 'react-router-dom'
-import { getAuth, signInWithEmailAndPassword } from 'firebase/auth'
+import { toast } from 'react-toastify'
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  updateProfile,
+} from 'firebase/auth'
+import { setDoc, doc, serverTimestamp } from 'firebase/firestore'
+import { db } from '../firebase.config'
 import OAuth from '../components/OAuth'
 import { ReactComponent as ArrowRightIcon } from '../assets/svg/keyboardArrowRightIcon.svg'
 import visibilityIcon from '../assets/svg/visibilityIcon.svg'
 
-function SignIn() {
+function SignUp() {
   const [showPassword, setShowPassword] = useState(false)
   const [formData, setFormData] = useState({
+    name: '',
     email: '',
     password: '',
   })
-  const { email, password } = formData
+  const { name, email, password } = formData
 
   const navigate = useNavigate()
 
-  const onChange = (e) => {
+  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData((prevState) => ({
       ...prevState,
       [e.target.id]: e.target.value,
     }))
   }
 
-  const onSubmit = async (e) => {
+  const onSubmit = async (e: React.SyntheticEvent<HTMLFormElement>) => {
     e.preventDefault()
 
     try {
       const auth = getAuth()
 
-      const userCredential = await signInWithEmailAndPassword(
+      const userCredential = await createUserWithEmailAndPassword(
         auth,
         email,
         password
       )
+      
+      const user = userCredential.user
+      
+      updateProfile(auth.currentUser, {
+        displayName: name,
+      })
 
-      if (userCredential.user) {
-        navigate('/')
-      }
+      const formDataCopy = { ...formData }
+      delete formDataCopy.password
+      formDataCopy.timestamp = serverTimestamp()
+
+      await setDoc(doc(db, 'users', user.uid), formDataCopy)
+
+      navigate('/')
     } catch (error) {
-      toast.error('Bad User Credentials')
+      toast.error('Something went wrong with registration')
     }
   }
 
@@ -51,6 +68,14 @@ function SignIn() {
         </header>
 
         <form onSubmit={onSubmit}>
+          <input
+            type='text'
+            className='nameInput'
+            placeholder='Name'
+            id='name'
+            value={name}
+            onChange={onChange}
+          />
           <input
             type='email'
             className='emailInput'
@@ -82,22 +107,22 @@ function SignIn() {
             Forgot Password
           </Link>
 
-          <div className='signInBar'>
-            <p className='signInText'>Sign In</p>
-            <button className='signInButton'>
-              <ArrowRightIcon width='34px' height='34px' />
+          <div className='signUpBar'>
+            <p className='signUpText'>Sign Up</p>
+            <button className='signUpButton'>
+              <ArrowRightIcon fill='#000000' width='34px' height='34px' />
             </button>
           </div>
         </form>
 
         <OAuth />
 
-        <Link to='/sign-up' className='registerLink'>
-          Sign Up Instead
+        <Link to='/sign-in' className='registerLink'>
+          Sign In Instead
         </Link>
       </div>
     </>
   )
 }
 
-export default SignIn
+export default SignUp

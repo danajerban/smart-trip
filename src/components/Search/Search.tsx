@@ -14,7 +14,6 @@ type SearchParams = {
 }
 
 const Search = ({ setCoordinates, setSelectedSearch }: SearchParams) => {
-  console.log('HERE');
   const [currIndex, setCurrIndex] = useState<number | null>(null);
   
   const {
