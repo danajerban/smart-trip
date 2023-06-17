@@ -1,9 +1,10 @@
+require('dotenv').config({ path: '../.env' });
 import express from 'express';
 import router from './router';
 import cors from 'cors';
 
-const HOST = (process.env.HOST as unknown as string) || 'localhost';
-const PORT = (process.env.PORT as unknown as number) || 3000;
+const HOST = process.env.HOST_NAME || 'localhost';
+const PORT = Number(process.env.PORT_NUMBER) || 3000;
 
 const app = express();
 app.use(cors());
