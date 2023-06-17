@@ -1,10 +1,11 @@
 import { useState } from 'react';
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 //@ts-ignore
 import styles from './styles.module.css';
 import 'react-toastify/dist/ReactToastify.css';
 import sendMessageToChatGPT from '../../apiService/openAI.apiService';
+import Spinner from '../../components/Spinner/Spinner';
 
 interface Message {
   role: string;
@@ -33,22 +34,11 @@ function ChatGPT() {
     });
   };
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setUserMessage(e.target.value);
-  };
-
-  const handleEnterKeyPress = (
-    event: React.KeyboardEvent<HTMLInputElement>
-  ) => {
-    if (event.key === 'Enter') {
-      processMessage();
-    }
-  };
-
   const processMessage = async () => {
-    if (userMessage === '') return toast('Hmmm I think you forgot to type something', {
-      toastId: 'emptyMessage',
-    });
+    if (userMessage === '')
+      return toast('Hmmm I think you forgot to type something', {
+        toastId: 'emptyMessage',
+      });
     if (currentChat.title === '') {
       currentChat.title = userMessage;
       setChatHistory([...chatHistory, currentChat]);
@@ -64,7 +54,8 @@ function ChatGPT() {
     setShowSpinner(false);
     if (response instanceof Error || response === 'Internal Server Error') {
       toast('Oops, something went wrong', {
-        toastId: 'serverError'})
+        toastId: 'serverError',
+      });
     } else {
       const assistantMessage: Message = {
         role: 'Assistant',
@@ -72,6 +63,18 @@ function ChatGPT() {
       };
       currentChat.messages.push(assistantMessage);
       setCurrentChat(currentChat);
+    }
+  };
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setUserMessage(e.target.value);
+  };
+
+  const handleEnterKeyPress = (
+    event: React.KeyboardEvent<HTMLInputElement>
+  ) => {
+    if (event.key === 'Enter') {
+      processMessage();
     }
   };
 
@@ -119,7 +122,9 @@ function ChatGPT() {
             <button className={styles.submitButton} onClick={processMessage}>
               ➢
             </button>
+
           </div>
+          {showSpinner && <Spinner />}
           <p className={styles.info}>Powered by chatGPT</p>
         </div>
       </section>
