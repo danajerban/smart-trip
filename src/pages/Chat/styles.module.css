@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;800;900&display=swap');
 
-
 .thisBody {
   margin: 0;
   padding: 0;
@@ -14,7 +13,7 @@
   margin: 0;
   padding: 0;
   color: #ffffff;
-  font-family: 'Montserrat', sans-serif
+  font-family: 'Montserrat', sans-serif;
 }
 
 .sideBar {
@@ -30,7 +29,7 @@
   height: 90vh;
   width: 100%;
   display: flex;
-  border: 1px solid  rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 10px;
   background-color: black;
   flex-direction: column;
@@ -39,13 +38,11 @@
   align-items: center;
 }
 
-
-
 .newButton {
   border: solid 0.5px rgba(255, 255, 255, 0.5);
   background-color: transparent;
   border-radius: 20px;
-  color:white;
+  color: white;
   padding: 10px;
   margin: 20px 10px;
 }
@@ -107,17 +104,20 @@
 
 .submitButton {
   position: absolute;
-  bottom: 15px;
-  right: 15px;
+  top: 2.5px;
+  right: 5px;
   cursor: pointer;
 }
 
 .feed {
-  overflow: scroll;
-  overflow-x: hidden;
-  width: 100%;
   font-size: 30px;
   padding: 0;
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
 }
 
 .feed li {
@@ -130,11 +130,11 @@
 }
 
 .feed p {
-  color: rgba(255,255,255,0.8);
+  color: rgba(255, 255, 255, 0.8);
   font-size: 17px;
   text-align: left;
 }
 
-.feed p.role{
+.feed p.role {
   min-width: 100px;
 }
