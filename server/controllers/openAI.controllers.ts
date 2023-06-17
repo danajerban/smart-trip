@@ -1,4 +1,4 @@
-//TODO save messageHistory to database
+//TODO save chat history to database and change controllers to use database
 import {
   ChatRequest,
   ChatResponse,
@@ -14,8 +14,6 @@ const MAX_TOKENS: number = 300;
 
 const controllers: Controllers = {
   chat: async (req, res) => {
-    //get user db id from req.user
-
     const messageHistory: Message[] = [];
 
     const userMessage: Message = {

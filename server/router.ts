@@ -1,8 +1,8 @@
+//TODO add authMiddleware
 import Router from 'express';
 import openAIcontrollers from './controllers/openAI.controllers';
-import authMiddleware from './middlewares/auth.middleware';
 const router = Router();
 
-router.post('/openai/chat', authMiddleware, openAIcontrollers.chat);
+router.post('/openai/chat', openAIcontrollers.chat);
 
 export default router;
