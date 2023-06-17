@@ -11,6 +11,7 @@ import { db } from '../firebase.config'
 import OAuth from '../components/OAuth'
 import { ReactComponent as ArrowRightIcon } from '../assets/svg/keyboardArrowRightIcon.svg'
 import visibilityIcon from '../assets/svg/visibilityIcon.svg'
+import { UserData } from '../types'
 
 function SignUp() {
   const [showPassword, setShowPassword] = useState(false)
@@ -44,18 +45,22 @@ function SignUp() {
       
       const user = userCredential.user
       
-      updateProfile(auth.currentUser, {
-        displayName: name,
-      })
+      if ( auth.currentUser) {
+        updateProfile(auth.currentUser, {
+          displayName: name,
+        })
+      } else {
+        toast.error('Something went wrong with registration')
+      }
 
-      const formDataCopy = { ...formData }
-      delete formDataCopy.password
-      formDataCopy.timestamp = serverTimestamp()
+      const userData: UserData = { name: formData.name, email: formData.email}
+      userData.timestamp = serverTimestamp()
 
-      await setDoc(doc(db, 'users', user.uid), formDataCopy)
+      await setDoc(doc(db, 'users', user.uid), userData)
 
-      navigate('/')
+      navigate('/');
     } catch (error) {
+      console.log(error)
       toast.error('Something went wrong with registration')
     }
   }
@@ -117,7 +122,7 @@ function SignUp() {
 
         <OAuth />
 
-        <Link to='/sign-in' className='registerLink'>
+        <Link to='/sign-in' className='forgotPasswordLink'>
           Sign In Instead
         </Link>
       </div>

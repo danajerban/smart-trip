@@ -1,33 +1,33 @@
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import { getAuth, updateProfile } from 'firebase/auth';
 import {
   updateDoc,
   doc,
-  collection,
-  getDocs,
-  query,
-  where,
-  orderBy,
-  deleteDoc,
 } from 'firebase/firestore';
 import { db } from '../firebase.config';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import arrowRight from '../assets/svg/keyboardArrowRightIcon.svg';
-import homeIcon from '../assets/svg/homeIcon.svg';
 
 function Profile() {
   const auth = getAuth();
-  const [loading, setLoading] = useState(true);
-  const [listings, setListings] = useState(null);
   const [changeDetails, setChangeDetails] = useState(false);
   const [formData, setFormData] = useState({
-    name: auth.currentUser.displayName,
-    email: auth.currentUser.email,
+    name: 'loading',
+    email: 'loading'
   });
 
   const { name, email } = formData;
+
+  useEffect(() => {
+
+      if (auth.currentUser) {
+        setFormData({
+          name: auth.currentUser.displayName!,
+          email: auth.currentUser.email!
+        })
+      }
+  },[auth.currentUser])
+
 
   const navigate = useNavigate();
 
@@ -38,14 +38,14 @@ function Profile() {
 
   const onSubmit = async () => {
     try {
-      if (auth.currentUser.displayName !== name) {
+      if (auth.currentUser!.displayName !== name) {
         // Update display name in fb
-        await updateProfile(auth.currentUser, {
+        await updateProfile(auth.currentUser!, {
           displayName: name,
         });
 
         // Update in firestore
-        const userRef = doc(db, 'users', auth.currentUser.uid);
+        const userRef = doc(db, 'users', auth.currentUser!.uid);
         await updateDoc(userRef, {
           name,
         });
@@ -56,7 +56,7 @@ function Profile() {
     }
   };
 
-  const onChange = (e) => {
+  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData((prevState) => ({
       ...prevState,
       [e.target.id]: e.target.value,

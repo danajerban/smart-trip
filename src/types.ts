@@ -1,3 +1,5 @@
+import { FieldValue } from "firebase/firestore";
+
 export interface Place {
   address: string;
   address_obj: {
@@ -122,4 +124,10 @@ export interface Coordinates {
 export interface Bounds {
   ne: { lat: number, lng: number },
   sw: { lat: number, lng: number },
+}
+
+export interface UserData {
+  name: string
+  email: string
+  timestamp?: FieldValue
 }

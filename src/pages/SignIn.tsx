@@ -92,8 +92,8 @@ function SignIn() {
 
         <OAuth />
 
-        <Link to='/sign-up' className='registerLink'>
-          Sign Up Instead
+        <Link to='/sign-up' className='forgotPasswordLink'>
+          <p className='signInText'>Sign Up Instead</p>
         </Link>
       </div>
     </>
