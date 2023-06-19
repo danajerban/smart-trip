@@ -4,7 +4,7 @@
   "description": "SmartTrip server",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest --watch --verbose"
   },
   "author": "Luis Carrasco",
   "license": "ISC",
