@@ -7,6 +7,7 @@ import {
 } from '@react-google-maps/api';
 import { mapStyling } from './mapStyling';
 import { Coordinates, Place, Bounds } from '@/src/types';
+import React from 'react';
 
 type MapProps = {
   setCoordinates: React.Dispatch<SetStateAction<Coordinates>>,
@@ -122,9 +123,11 @@ const Map = ({
       onLoad={onLoad}
       options={options}
       onUnmount={onUnmount}
+      data-testid='google-map'
     >
       {places?.map((place) => (
         <Marker
+          data-testid='marker'
           key={`0${place.name}`}
           position={{
             lat: Number(place.latitude),

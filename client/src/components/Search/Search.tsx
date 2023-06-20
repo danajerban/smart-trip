@@ -88,6 +88,7 @@ const Search = ({ setCoordinates, setSelectedSearch }: SearchParams) => {
         placeholder="Search an address"
         type="text"
         className={styles.input}
+        data-testid ='search-bar'
       />
       {status === "OK" && (
         <>

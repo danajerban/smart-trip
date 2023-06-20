@@ -8,7 +8,7 @@ type PlaceDetailsProps = {
 const PlaceDetails = ({ place }: PlaceDetailsProps) => {
 
   return (
-    <div className={styles.placeCard}>
+    <div data-testid='place-details' className={styles.placeCard}>
       <div
         className={styles.cardMedia}
         style={{

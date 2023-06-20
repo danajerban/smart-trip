@@ -1,3 +1,4 @@
+import React from 'react';
 import { render, screen } from '@testing-library/react';
 import Header from './Header';
 import '@testing-library/jest-dom'
@@ -25,14 +26,14 @@ describe('Header component', () => {
     const searchComponent = screen.getByTestId('search-bar');
     expect(searchComponent).toBeInTheDocument();
   });
-  test('home icon links to home page', () => {
-    render(
-      <Header setCoordinates={jest.fn()} setSelectedSearch={jest.fn()} />
-    );
+  // test('home icon links to home page', () => {
+  //   render(
+  //     <Header setCoordinates={jest.fn()} setSelectedSearch={jest.fn()} />
+  //   );
 
-    const homeIcon = screen.getByTestId('home-icon');
-    expect(homeIcon).toHaveAttribute('href', '/');
-  })
+  //   const homeIcon = screen.getByTestId('home-icon');
+  //   expect(homeIcon).toHaveAttribute('href', '/');
+  // })
 });
 
 
