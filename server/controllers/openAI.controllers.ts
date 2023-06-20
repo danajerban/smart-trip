@@ -7,6 +7,8 @@ import {
   Message,
 } from './openAI.interfaces';
 
+const { OPENAI_API_KEY } = require('../config.ts');
+
 // Prompt parameters
 const MODEL: string = 'gpt-3.5-turbo';
 const TEMPERATURE: number = 0.7;
@@ -35,7 +37,7 @@ const controllers: Controllers = {
       headers: {
         'Content-Type': 'application/json',
         Accept: 'application/json',
-        Authorization: `Bearer ${process.env.OPENAI_API_KEY}`,
+        Authorization: `Bearer ${OPENAI_API_KEY}`,
       },
       body: JSON.stringify(chatRequest),
     };
@@ -45,6 +47,7 @@ const controllers: Controllers = {
         'https://api.openai.com/v1/chat/completions',
         options
       );
+
       if (response.ok) {
         const chatResponse: ChatResponse = await response.json();
         messageHistory.push(chatResponse.choices[0].message);
