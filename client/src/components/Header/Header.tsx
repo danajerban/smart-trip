@@ -16,14 +16,18 @@ const Header = ({ setCoordinates, setSelectedSearch }: HeaderProps) => {
   return (
     <div className={styles.navBar}>
       <div className={styles.navBarTitle} onClick={() => navigate('/')}>
-        <HomeIcon
+        <HomeIcon 
+          data-testid='home-icon'
           fill="white"
           width='36px'
           height='36px'
         />
       </div>
-      <div className={styles.navBarSearch}>
-        <Search setCoordinates={setCoordinates} setSelectedSearch={setSelectedSearch} />
+      <div className={styles.navBarSearch} data-testid='search-bar'>
+        <Search 
+          setCoordinates={setCoordinates}
+          setSelectedSearch={setSelectedSearch} 
+        />
       </div>
     </div>
   );
