@@ -7,11 +7,12 @@ import {
   updateProfile,
 } from 'firebase/auth'
 import { setDoc, doc, serverTimestamp } from 'firebase/firestore'
-import { db } from '../firebase.config'
-import OAuth from '../components/OAuth'
-import { ReactComponent as ArrowRightIcon } from '../assets/svg/keyboardArrowRightIcon.svg'
-import visibilityIcon from '../assets/svg/visibilityIcon.svg'
-import { UserData } from '../types'
+import { db } from '../../firebase.config'
+import OAuth from '../../components/OAuth'
+import { ReactComponent as ArrowRightIcon } from '../../assets/svg/keyboardArrowRightIcon.svg'
+import visibilityIcon from '../../assets/svg/visibilityIcon.svg'
+import { UserData } from '../../types'
+import './user.css'
 
 function SignUp() {
   const [showPassword, setShowPassword] = useState(false)

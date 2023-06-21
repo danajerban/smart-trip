@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { getPlacesData } from "../TravelAdvisorAPI";
-import Header from "../components/Header/Header";
-import List from "../components/List/List";
-import Map from "../components/Map/Map";
-import { Coordinates, Place, Bounds } from "../types";
+import { getPlacesData } from "../../TravelAdvisorAPI";
+import Header from "../../components/Header/Header";
+import List from "../../components/List/List";
+import Map from "../../components/Map/Map";
+import { Coordinates, Place, Bounds } from "../../types";
 
 function Explore() {
 

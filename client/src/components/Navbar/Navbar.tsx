@@ -1,7 +1,8 @@
 import { useNavigate, useLocation } from 'react-router-dom'
-import { ReactComponent as ShareIcon } from '../assets/svg/shareIcon.svg'
-import { ReactComponent as ExploreIcon} from '../assets/svg/exploreIcon.svg'
-import { ReactComponent as PersonOutlineIcon} from '../assets/svg/personOutlineIcon.svg'
+import { ReactComponent as ShareIcon } from '../../assets/svg/shareIcon.svg'
+import { ReactComponent as ExploreIcon} from '../../assets/svg/exploreIcon.svg'
+import { ReactComponent as PersonOutlineIcon} from '../../assets/svg/personOutlineIcon.svg'
+import './Navbar.css'
 
 function Navbar() {
   const navigate = useNavigate()

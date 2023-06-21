@@ -15,7 +15,7 @@ type SearchParams = {
 
 const Search = ({ setCoordinates, setSelectedSearch }: SearchParams) => {
   const [currIndex, setCurrIndex] = useState<number | null>(null);
-  
+  const [input , setInput] = useState<string>("");
   const {
     ready,
     value,
@@ -33,6 +33,7 @@ const Search = ({ setCoordinates, setSelectedSearch }: SearchParams) => {
 
   const handleInput = (e: ChangeEvent<HTMLInputElement>) => {
     setValue(e.target.value)
+    setInput(e.target.value);
   };
 
   const handleSelect = ({description}: Suggestion) => {
@@ -41,7 +42,7 @@ const Search = ({ setCoordinates, setSelectedSearch }: SearchParams) => {
     const getCoordinates = async () => {
       try {
         const results = await getGeocode( { address: description });
-        console.log(results)
+        // console.log(results)
         const { lat, lng } = getLatLng(results[0]);
         setSelectedSearch({ lat, lng });
         setCoordinates({ lat, lng });
@@ -49,6 +50,7 @@ const Search = ({ setCoordinates, setSelectedSearch }: SearchParams) => {
         console.error("Error: ", error);
       }
     }
+    setSelectedSearch({ lat: 121, lng: 122 });
     getCoordinates();
   };
 
@@ -82,7 +84,7 @@ const Search = ({ setCoordinates, setSelectedSearch }: SearchParams) => {
   return (
     <>
       <input
-        value={value}
+        value={input}
         onChange={handleInput}
         disabled={!ready}
         placeholder="Search an address"

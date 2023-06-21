@@ -2,14 +2,15 @@ import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { getAuth, sendPasswordResetEmail } from 'firebase/auth'
 import { toast } from 'react-toastify'
-import { ReactComponent as ArrowRightIcon } from '../assets/svg/keyboardArrowRightIcon.svg'
+import { ReactComponent as ArrowRightIcon } from '../../assets/svg/keyboardArrowRightIcon.svg'
+import './user.css'
 
 function ForgotPassword() {
   const [email, setEmail] = useState('')
 
-  const onChange = (e) => setEmail(e.target.value)
+  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)
 
-  const onSubmit = async (e) => {
+  const onSubmit = async (e: React.SyntheticEvent<HTMLFormElement>) => {
     e.preventDefault()
     try {
       const auth = getAuth()

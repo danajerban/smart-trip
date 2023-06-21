@@ -4,9 +4,10 @@ import {
   updateDoc,
   doc,
 } from 'firebase/firestore';
-import { db } from '../firebase.config';
+import { db } from '../../firebase.config';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import './user.css'
 
 function Profile() {
   const auth = getAuth();
