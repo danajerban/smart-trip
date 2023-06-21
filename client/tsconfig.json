@@ -30,5 +30,5 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["src/**/*", "src/__tests__/**/*", "src/components", "src/assets/svg/custom.d.ts", "src/assets/svg"]
+  "include": ["src/**/*", "src/__tests__/**/*", "src/components", "src/assets/svg/custom.d.ts", "src/assets/svg","src/pages/Chat"],
 }

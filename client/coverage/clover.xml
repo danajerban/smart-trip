@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1687363453831" clover="3.2.0">
-  <project timestamp="1687363453831" name="All files">
+<coverage generated="1687365253107" clover="3.2.0">
+  <project timestamp="1687365253107" name="All files">
     <metrics statements="285" coveredstatements="64" conditionals="92" coveredconditionals="31" methods="80" coveredmethods="21" elements="457" coveredelements="116" complexity="0" loc="285" ncloc="285" packages="14" files="26" classes="26"/>
     <package name="src">
       <metrics statements="36" coveredstatements="1" conditionals="8" coveredconditionals="0" methods="8" coveredmethods="0"/>
       <file name="App.tsx" path="C:\Users\Angus\Codeworks\Legacy Project\smart-trip\client\src\App.tsx">
         <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
-        <line num="17" count="0" type="stmt"/>
+        <line num="18" count="0" type="stmt"/>
       </file>
       <file name="TravelAdvisorAPI.ts" path="C:\Users\Angus\Codeworks\Legacy Project\smart-trip\client\src\TravelAdvisorAPI.ts">
         <metrics statements="6" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
