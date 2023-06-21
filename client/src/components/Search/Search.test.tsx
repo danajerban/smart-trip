@@ -1,7 +1,6 @@
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import Search from './Search';
 import '@testing-library/jest-dom';
-import React from 'react';
 import usePlacesAutocomplete , {getGeocode, getLatLng} from 'use-places-autocomplete';
 
 // usePlacesAutocomplete.default.mockImplementation(() => mockUsePlacesAutocomplete);
@@ -45,7 +44,7 @@ describe('Search', () => {
 
     fireEvent.change(searchInput, { target: { value: 'New York' } });
     expect(searchInput.value).toBe('New York');
-  
+
   });
 
   it('selects a suggestion and updates coordinates correctly', async () => {
@@ -61,14 +60,14 @@ describe('Search', () => {
     // const { getGeocode } = require('use-places-autocomplete');
     // const spy = jest.spyOn(window, 'getGeocode');
     // spy.mockResolvedValue({address: 'New York'})
-    
+
     // const usePlacesAutocompleteResult = usePlacesAutocomplete();
 
     // expect(getLatLng('x')).toBe({lat: 123, lng: 456 })
     // const suggestionItem = screen.getByText('Main Text 1');
     // expect(suggestionItem).toBeInTheDocument();
     // fireEvent.click(suggestionItem);
-    
+
 
     // await waitFor(() => {
     //   // expect(getGeocode).toReturnWith([{address: 'Mian Street'},{address: 'Main Street 1'}]);
@@ -78,7 +77,7 @@ describe('Search', () => {
   // it.only('selects a suggestion and updates coordinates correctly', async () => {
   //   jest.mock('use-places-autocomplete', () => {
   //     const originalModule = jest.requireActual('use-places-autocomplete');
-      
+
   //     return {
   //       __esModule: true,
   //       ...originalModule,

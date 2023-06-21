@@ -1,7 +1,7 @@
-import styles from "./styles.module.css";
+import './Spinner.css';
 
 const Spinner = () => (
-  <div data-testid='spinner' className={styles.spinner}></div>
+  <div data-testid='spinner' className='spinner'></div>
 );
 
 export default Spinner;
