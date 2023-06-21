@@ -5,6 +5,7 @@ import styles from './Chat.module.css'
 import 'react-toastify/dist/ReactToastify.css';
 import sendMessageToChatGPT from '../../apiService/openAI.apiService';
 import Spinner from '../../components/Spinner/Spinner';
+import React from 'react';
 
 interface Message {
   role: string;

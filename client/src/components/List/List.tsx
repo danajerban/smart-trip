@@ -3,6 +3,7 @@ import styles from "./styles.module.css"
 import Spinner from "../Spinner/Spinner";
 import { Place } from "@/src/types";
 import { SetStateAction } from "react";
+import React from "react";
 
 type ListParams = {
   places: Place[]

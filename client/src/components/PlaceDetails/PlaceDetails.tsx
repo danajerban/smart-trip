@@ -1,6 +1,7 @@
 import { FaPhoneAlt, FaMapMarkerAlt } from "react-icons/fa";
 import styles from "./styles.module.css"
 import { Place } from "@/src/types";
+import React from "react";
 type PlaceDetailsProps = {
   place: Place
 }
@@ -23,7 +24,7 @@ const PlaceDetails = ({ place }: PlaceDetailsProps) => {
       <div className={styles.cardContent}>
         <h2 className={styles.placeName}>{place.name}</h2>
         <div className={styles.flexBetween}>
-          
+
         </div>
         <div className={styles.flexBetween}>
           <h3>Rating</h3>
