@@ -1,6 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import Header from './Header';
 import '@testing-library/jest-dom'
+import React from 'react';
 
 jest.mock('react-router-dom', () => ({
   ...jest.requireActual('react-router-dom'),

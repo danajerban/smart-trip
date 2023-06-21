@@ -1,5 +1,5 @@
 import PlaceDetails from "../PlaceDetails/PlaceDetails";
-import styles from "./styles.module.css"
+import './List.css'
 import Spinner from "../Spinner/Spinner";
 import { Place } from "@/src/types";
 import { SetStateAction } from "react";
@@ -14,15 +14,15 @@ type ListParams = {
 
 const List = ({ places, type, setType, loading}: ListParams) => {
   return (
-    <div className={styles.container}>
-      <h2 className={styles.hWhat}>What are you looking for ?</h2>
+    <div className='container'>
+      <h2 className='hWhat'>What are you looking for ?</h2>
       {loading ? (
-        <div className={styles.loading}>
+        <div className='loading'>
           <Spinner/>
         </div>
       ) : (
         <>
-          <div className={styles.formControl}>
+          <div className='formControl'>
             <label id='type'></label>
             <select data-testid='type' value={type} onChange={(e) => setType(e.target.value)}>
               <option value="restaurants">Restaurants</option>
@@ -30,7 +30,7 @@ const List = ({ places, type, setType, loading}: ListParams) => {
               <option value="attractions">Attractions</option>
             </select>
           </div>
-          <div className={styles.list}>
+          <div className='list'>
             {places?.map((place, i) => (
               <PlaceDetails place={place} key={i}/>
             ))}

@@ -1,6 +1,7 @@
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import Search from './Search';
 import '@testing-library/jest-dom';
+import React from 'react';
 import usePlacesAutocomplete , {getGeocode, getLatLng} from 'use-places-autocomplete';
 
 // usePlacesAutocomplete.default.mockImplementation(() => mockUsePlacesAutocomplete);

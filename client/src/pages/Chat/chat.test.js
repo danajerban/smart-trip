@@ -3,6 +3,7 @@ import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { ToastContainer, toast } from 'react-toastify';
 import ChatGPT from './Chat';
 import sendMessageToChatGPT from '../../apiService/openAI.apiService';
+import React from 'react';
 
 jest.mock('react-toastify', () => ({
   ...jest.requireActual('react-toastify'),

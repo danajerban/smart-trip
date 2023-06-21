@@ -3,16 +3,17 @@ import userEvent from '@testing-library/user-event';
 import List from './List';
 import { mockPlaces } from '../../mockPlaces';
 import '@testing-library/jest-dom'
+import React from 'react'
 
 describe('List', () => {
   it('should render loading spinner when loading is true', () => {
-    render(<List places={[]} type="restaurants" setType={() => {}} loading={true} />);
+    render(<List places={[]} type="restaurants" setType={() => ({})} loading={true} />);
 
     expect(screen.getByTestId('spinner')).toBeInTheDocument();
   });
 
   it('should render select element and list of places when loading is false', () => {
-    render(<List places={mockPlaces} type="restaurants" setType={() => {}} loading={false} />);
+    render(<List places={mockPlaces} type="restaurants" setType={() => ({})} loading={false} />);
 
     const selectElement = screen.getByTestId('type');
     expect(selectElement).toBeInTheDocument();

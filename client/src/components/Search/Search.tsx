@@ -3,7 +3,7 @@ import usePlacesAutocomplete, {
   getLatLng,
 } from "use-places-autocomplete";
 import React, { useState, ChangeEvent, SetStateAction } from "react";
-import styles from "./styles.module.css";
+import './Search.css'
 import { Coordinates } from "@/src/types";
 
 type Suggestion = google.maps.places.AutocompletePrediction
@@ -88,7 +88,7 @@ const Search = ({ setCoordinates, setSelectedSearch }: SearchParams) => {
         disabled={!ready}
         placeholder="Search an address"
         type="text"
-        className={styles.input}
+        className='input'
         data-testid ='search-bar'
       />
       {status === "OK" && (
