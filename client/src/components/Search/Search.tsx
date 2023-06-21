@@ -2,7 +2,7 @@ import usePlacesAutocomplete, {
   getGeocode,
   getLatLng,
 } from "use-places-autocomplete";
-import { useState, ChangeEvent, SetStateAction } from "react";
+import React, { useState, ChangeEvent, SetStateAction } from "react";
 import styles from "./styles.module.css";
 import { Coordinates } from "@/src/types";
 
@@ -42,7 +42,7 @@ const Search = ({ setCoordinates, setSelectedSearch }: SearchParams) => {
     const getCoordinates = async () => {
       try {
         const results = await getGeocode( { address: description });
-        // console.log(results)
+        console.log(results)
         const { lat, lng } = getLatLng(results[0]);
         setSelectedSearch({ lat, lng });
         setCoordinates({ lat, lng });
@@ -50,7 +50,6 @@ const Search = ({ setCoordinates, setSelectedSearch }: SearchParams) => {
         console.error("Error: ", error);
       }
     }
-    setSelectedSearch({ lat: 121, lng: 122 });
     getCoordinates();
   };
 
