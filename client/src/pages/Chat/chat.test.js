@@ -1,15 +1,15 @@
 import '@testing-library/jest-dom';
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { ToastContainer, toast } from 'react-toastify';
-import ChatGPT from '../pages/Chat/Chat';
-import sendMessageToChatGPT from '../apiService/openAI.apiService';
+import ChatGPT from './Chat';
+import sendMessageToChatGPT from '../../apiService/openAI.apiService';
 
 jest.mock('react-toastify', () => ({
   ...jest.requireActual('react-toastify'),
   toast: jest.fn(),
 }));
 
-jest.mock('../apiService/openAI.apiService', () => ({
+jest.mock('../../apiService/openAI.apiService', () => ({
   __esModule: true,
   default: jest.fn(),
 }));
