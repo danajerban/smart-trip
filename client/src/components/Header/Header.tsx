@@ -1,3 +1,4 @@
+import React from "react";
 import styles from "./styles.module.css"
 import { useNavigate } from "react-router-dom";
 import Search from "../Search/Search";
@@ -10,12 +11,11 @@ type HeaderProps = {
   setSelectedSearch: React.Dispatch<SetStateAction<Coordinates | null>>
 }
 
-
 const Header = ({ setCoordinates, setSelectedSearch }: HeaderProps) => {
   const navigate = useNavigate()
   return (
     <div className={styles.navBar}>
-      <div className={styles.navBarTitle} onClick={() => navigate('/')}>
+      <div  data-testid='home-icon' className={styles.navBarTitle} onClick={() => navigate('/')}>
         <HomeIcon
           fill="white"
           width='36px'
@@ -23,7 +23,10 @@ const Header = ({ setCoordinates, setSelectedSearch }: HeaderProps) => {
         />
       </div>
       <div className={styles.navBarSearch}>
-        <Search setCoordinates={setCoordinates} setSelectedSearch={setSelectedSearch} />
+        <Search 
+          setCoordinates={setCoordinates}
+          setSelectedSearch={setSelectedSearch} 
+        />
       </div>
     </div>
   );
