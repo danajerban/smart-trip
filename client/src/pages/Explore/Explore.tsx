@@ -1,9 +1,9 @@
-import { useEffect, useState } from "react";
-import { getPlacesData } from "../TravelAdvisorAPI";
-import Header from "../components/Header/Header";
-import List from "../components/List/List";
-import Map from "../components/Map/Map";
-import { Coordinates, Place, Bounds } from "../types";
+import React, { useEffect, useState } from "react";
+import { getPlacesData } from "../../TravelAdvisorAPI";
+import Header from "../../components/Header/Header";
+import List from "../../components/List/List";
+import Map from "../../components/Map/Map";
+import { Coordinates, Place, Bounds } from "../../types";
 
 function Explore() {
 
@@ -22,6 +22,7 @@ function Explore() {
     if (bounds.sw && bounds.ne) {
       setLoading(true);
       getPlacesData(type, bounds).then((data) => {
+        console.log(data)
         setPlaces(data?.filter((place: Place) => place.name && Number(place.num_reviews) > 0));
         setLoading(false);
       });

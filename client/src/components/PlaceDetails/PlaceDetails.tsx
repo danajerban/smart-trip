@@ -8,7 +8,7 @@ type PlaceDetailsProps = {
 const PlaceDetails = ({ place }: PlaceDetailsProps) => {
 
   return (
-    <div className={styles.placeCard}>
+    <div data-testid='place-details' className={styles.placeCard}>
       <div
         className={styles.cardMedia}
         style={{
@@ -32,7 +32,7 @@ const PlaceDetails = ({ place }: PlaceDetailsProps) => {
           </h3>
         </div>
         {place?.cuisine?.map(({ name }) => (
-          <div key={name} className={styles.chip}>
+          <div data-testid='cuisine' key={name} className={styles.chip}>
             {name}
           </div>
         ))}

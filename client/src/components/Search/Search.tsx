@@ -2,7 +2,7 @@ import usePlacesAutocomplete, {
   getGeocode,
   getLatLng,
 } from "use-places-autocomplete";
-import { useState, ChangeEvent, SetStateAction } from "react";
+import React, { useState, ChangeEvent, SetStateAction } from "react";
 import styles from "./styles.module.css";
 import { Coordinates } from "@/src/types";
 
@@ -15,7 +15,7 @@ type SearchParams = {
 
 const Search = ({ setCoordinates, setSelectedSearch }: SearchParams) => {
   const [currIndex, setCurrIndex] = useState<number | null>(null);
-  
+  const [input , setInput] = useState<string>("");
   const {
     ready,
     value,
@@ -33,6 +33,7 @@ const Search = ({ setCoordinates, setSelectedSearch }: SearchParams) => {
 
   const handleInput = (e: ChangeEvent<HTMLInputElement>) => {
     setValue(e.target.value)
+    setInput(e.target.value);
   };
 
   const handleSelect = ({description}: Suggestion) => {
@@ -82,12 +83,13 @@ const Search = ({ setCoordinates, setSelectedSearch }: SearchParams) => {
   return (
     <>
       <input
-        value={value}
+        value={input}
         onChange={handleInput}
         disabled={!ready}
         placeholder="Search an address"
         type="text"
         className={styles.input}
+        data-testid ='search-bar'
       />
       {status === "OK" && (
         <>

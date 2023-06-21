@@ -1,18 +1,27 @@
-import { useState } from 'react'
-import { toast } from 'react-toastify'
+import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import { getAuth, signInWithEmailAndPassword } from 'firebase/auth'
-import OAuth from '../components/OAuth'
-import { ReactComponent as ArrowRightIcon } from '../assets/svg/keyboardArrowRightIcon.svg'
-import visibilityIcon from '../assets/svg/visibilityIcon.svg'
+import { toast } from 'react-toastify'
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  updateProfile,
+} from 'firebase/auth'
+import { setDoc, doc, serverTimestamp } from 'firebase/firestore'
+import { db } from '../../firebase.config'
+import OAuth from '../../components/OAuth'
+import { ReactComponent as ArrowRightIcon } from '../../assets/svg/keyboardArrowRightIcon.svg'
+import visibilityIcon from '../../assets/svg/visibilityIcon.svg'
+import { UserData } from '../../types'
+import './user.css'
 
-function SignIn() {
+function SignUp() {
   const [showPassword, setShowPassword] = useState(false)
   const [formData, setFormData] = useState({
+    name: '',
     email: '',
     password: '',
   })
-  const { email, password } = formData
+  const { name, email, password } = formData
 
   const navigate = useNavigate()
 
@@ -29,17 +38,31 @@ function SignIn() {
     try {
       const auth = getAuth()
 
-      const userCredential = await signInWithEmailAndPassword(
+      const userCredential = await createUserWithEmailAndPassword(
         auth,
         email,
         password
       )
-
-      if (userCredential.user) {
-        navigate('/')
+      
+      const user = userCredential.user
+      
+      if ( auth.currentUser) {
+        updateProfile(auth.currentUser, {
+          displayName: name,
+        })
+      } else {
+        toast.error('Something went wrong with registration')
       }
+
+      const userData: UserData = { name: formData.name, email: formData.email}
+      userData.timestamp = serverTimestamp()
+
+      await setDoc(doc(db, 'users', user.uid), userData)
+
+      navigate('/');
     } catch (error) {
-      toast.error('Bad User Credentials')
+      console.log(error)
+      toast.error('Something went wrong with registration')
     }
   }
 
@@ -51,6 +74,14 @@ function SignIn() {
         </header>
 
         <form onSubmit={onSubmit}>
+          <input
+            type='text'
+            className='nameInput'
+            placeholder='Name'
+            id='name'
+            value={name}
+            onChange={onChange}
+          />
           <input
             type='email'
             className='emailInput'
@@ -82,22 +113,22 @@ function SignIn() {
             Forgot Password
           </Link>
 
-          <div className='signInBar'>
-            <p className='signInText'>Sign In</p>
-            <button className='signInButton'>
-              <ArrowRightIcon width='34px' height='34px' />
+          <div className='signUpBar'>
+            <p className='signUpText'>Sign Up</p>
+            <button className='signUpButton'>
+              <ArrowRightIcon fill='#000000' width='34px' height='34px' />
             </button>
           </div>
         </form>
 
         <OAuth />
 
-        <Link to='/sign-up' className='forgotPasswordLink'>
-          <p className='signInText'>Sign Up Instead</p>
+        <Link to='/sign-in' className='forgotPasswordLink'>
+          Sign In Instead
         </Link>
       </div>
     </>
   )
 }
 
-export default SignIn
+export default SignUp

@@ -88,11 +88,11 @@ export interface Place {
     is_blessed: boolean;
     published_date: string;
     uploaded_date: string;
-    user: {
-      member_id: string;
-      type: string;
-      user_id: null;
-    };
+  };
+  user: {
+    member_id: string;
+    type: string;
+    user_id: null;
   };
   preferred_map_engine: string;
   price_level: string;
