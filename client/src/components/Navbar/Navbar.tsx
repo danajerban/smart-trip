@@ -3,6 +3,7 @@ import { ReactComponent as ShareIcon } from '../../assets/svg/shareIcon.svg'
 import { ReactComponent as ExploreIcon} from '../../assets/svg/exploreIcon.svg'
 import { ReactComponent as PersonOutlineIcon} from '../../assets/svg/personOutlineIcon.svg'
 import './Navbar.css'
+import React from 'react'
 
 function Navbar() {
   const navigate = useNavigate()
