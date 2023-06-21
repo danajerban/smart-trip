@@ -37,7 +37,7 @@ async function sendMessageToChatGPT(content: string) {
     body: JSON.stringify({ message: content }),
   };
   try {
-    const response = await fetch('http://localhost:3000/openai/chat', options);
+    const response = await fetch('http://localhost:3001/openai/chat', options);
     if (response.ok) {
       const chatResponse: ChatResponse = await response.json();
       return chatResponse;
