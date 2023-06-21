@@ -1,8 +1,7 @@
 import { useState } from 'react';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-//@ts-ignore
-import styles from './styles.module.css';
+import styles from './Chat.module.css'
 import 'react-toastify/dist/ReactToastify.css';
 import sendMessageToChatGPT from '../../apiService/openAI.apiService';
 import Spinner from '../../components/Spinner/Spinner';
@@ -80,28 +79,25 @@ function ChatGPT() {
 
   return (
     <div className={styles.chat}>
-      <section className={styles.sideBar}>
-        <button className={styles.newButton} onClick={createNewChat}>
+      <section className={styles.sideBar} data-testid="sidebar">
+        <button className={styles.newButton} onClick={createNewChat} data-testid="sidebar-button">
           + New Chat
         </button>
-        <ul className={styles.history}>
+        <ul className={styles.history} role='list' >
           {chatHistory?.map((chat, index) => (
-            <li key={index} onClick={() => setCurrentChat(chat)}>
+            <li role='listitem' key={index} onClick={() => setCurrentChat(chat)}>
               {chat.title}
             </li>
           ))}
         </ul>
-        <nav className="thisNav">
-          <p>Smart Trip</p>
-        </nav>
       </section>
-      <section className={styles.main}>
+      <section className={styles.main} data-testid="main-section">
         {currentChat.title !== '' ? (
-          <h1>{currentChat.title}</h1>
+          <h1 data-testid="chat-title">{currentChat.title}</h1>
         ) : (
-          <h1>Smart Trip</h1>
+          <h1 data-testid="default-title">Smart Trip</h1>
         )}
-        <ul className={styles.feed}>
+        <ul className={styles.feed} data-testid="feed">
           {currentChat.messages.map((message, index) => (
             <li key={index}>
               <p className={styles.role}>{message.role}:</p>
@@ -112,6 +108,7 @@ function ChatGPT() {
         <div className={styles.bottomSection}>
           <div className={styles.inputContainer}>
             <input
+              data-testid="input"
               className={styles.chatInput}
               type="text"
               placeholder="Type a message..."
@@ -119,7 +116,7 @@ function ChatGPT() {
               onChange={handleInputChange}
               onKeyDown={handleEnterKeyPress}
             />
-            <button className={styles.submitButton} onClick={processMessage}>
+            <button className={styles.submitButton} onClick={processMessage} data-testid= "submit-button">
               ➢
             </button>
 

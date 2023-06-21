@@ -4,20 +4,20 @@ import 'react-toastify/dist/ReactToastify.css'
 import Navbar from './components/Navbar'
 import PrivateRoute from './components/PrivateRoute'
 import Explore from './pages/Explore'
-import Chat from './pages/Chat/Chat'
+import ChatGPT from './pages/Chat/Chat'
 import Home from './pages/Home'
 import Profile from './pages/Profile'
 import SignIn from './pages/SignIn'
 import SignUp from './pages/SignUp'
 import ForgotPassword from './pages/ForgotPassword'
 function App() {
-  
+
   return (
     <>
       <Routes>
       <Route path='/' element={<Home />} />
         <Route path='/explore' element={<Explore />} />
-        <Route path='/chat' element={<Chat />} />
+        <Route path='/chat' element={<ChatGPT />} />
         <Route path='/profile' element={<PrivateRoute />}>
           <Route path='/profile' element={<Profile />} />
         </Route>
