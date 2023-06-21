@@ -1,5 +1,5 @@
 TN:
-SF:src/App.tsx
+SF:src\App.tsx
 FN:15,App
 FNF:1
 FNH:0
@@ -11,7 +11,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:src/TravelAdvisorAPI.ts
+SF:src\TravelAdvisorAPI.ts
 FN:3,(anonymous_0)
 FNF:1
 FNH:0
@@ -28,7 +28,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:src/firebase.config.ts
+SF:src\firebase.config.ts
 FNF:0
 FNH:0
 DA:4,0
@@ -40,7 +40,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:src/index.tsx
+SF:src\index.tsx
 FNF:0
 FNH:0
 DA:8,0
@@ -52,7 +52,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:src/mockPlaces.ts
+SF:src\mockPlaces.ts
 FNF:0
 FNH:0
 DA:3,2
@@ -62,7 +62,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:src/reportWebVitals.ts
+SF:src\reportWebVitals.ts
 FN:3,(anonymous_0)
 FN:5,(anonymous_1)
 FNF:2
@@ -87,7 +87,7 @@ BRF:4
 BRH:0
 end_of_record
 TN:
-SF:src/types.ts
+SF:src\types.ts
 FNF:0
 FNH:0
 LF:0
@@ -96,7 +96,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:src/useAuthStatus.ts
+SF:src\useAuthStatus.ts
 FN:4,(anonymous_0)
 FN:9,(anonymous_1)
 FN:12,(anonymous_2)
@@ -131,7 +131,7 @@ BRF:4
 BRH:0
 end_of_record
 TN:
-SF:src/apiService/openAI.apiService.ts
+SF:src\apiService\openAI.apiService.ts
 FN:31,sendMessageToChatGPT
 FNF:1
 FNH:0
@@ -154,7 +154,7 @@ BRF:2
 BRH:0
 end_of_record
 TN:
-SF:src/components/OAuth.tsx
+SF:src\components\OAuth.tsx
 FN:9,OAuth
 FN:13,(anonymous_1)
 FNF:2
@@ -186,7 +186,7 @@ BRF:4
 BRH:0
 end_of_record
 TN:
-SF:src/components/PrivateRoute.tsx
+SF:src\components\PrivateRoute.tsx
 FN:6,(anonymous_0)
 FNF:1
 FNH:0
@@ -206,7 +206,7 @@ BRF:4
 BRH:0
 end_of_record
 TN:
-SF:src/components/Header/Header.tsx
+SF:src\components\Header\Header.tsx
 FN:14,(anonymous_0)
 FN:18,(anonymous_1)
 FNF:2
@@ -223,7 +223,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:src/components/List/List.tsx
+SF:src\components\List\List.tsx
 FN:15,(anonymous_0)
 FN:27,(anonymous_1)
 FN:34,(anonymous_2)
@@ -244,7 +244,7 @@ BRF:2
 BRH:2
 end_of_record
 TN:
-SF:src/components/Map/Map.tsx
+SF:src\components\Map\Map.tsx
 FN:19,(anonymous_0)
 FN:34,(anonymous_1)
 FN:47,callback
@@ -325,7 +325,7 @@ BRF:10
 BRH:0
 end_of_record
 TN:
-SF:src/components/Map/mapStyling.ts
+SF:src\components\Map\mapStyling.ts
 FNF:0
 FNH:0
 DA:2,0
@@ -335,7 +335,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:src/components/Navbar/Navbar.tsx
+SF:src\components\Navbar\Navbar.tsx
 FN:8,Navbar
 FN:12,(anonymous_1)
 FN:22,(anonymous_2)
@@ -377,7 +377,7 @@ BRF:14
 BRH:12
 end_of_record
 TN:
-SF:src/components/PlaceDetails/PlaceDetails.tsx
+SF:src\components\PlaceDetails\PlaceDetails.tsx
 FN:9,(anonymous_0)
 FN:35,(anonymous_1)
 FN:53,(anonymous_2)
@@ -405,7 +405,7 @@ BRF:6
 BRH:5
 end_of_record
 TN:
-SF:src/components/Search/Search.tsx
+SF:src\components\Search\Search.tsx
 FN:16,(anonymous_0)
 FN:29,(anonymous_1)
 FN:34,(anonymous_2)
@@ -461,7 +461,7 @@ BRF:2
 BRH:1
 end_of_record
 TN:
-SF:src/components/Spinner/Spinner.tsx
+SF:src\components\Spinner\Spinner.tsx
 FN:4,(anonymous_0)
 FNF:1
 FNH:1
@@ -474,7 +474,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:src/pages/Chat/Chat.tsx
+SF:src\pages\Chat\Chat.tsx
 FN:20,ChatGPT
 FN:29,(anonymous_1)
 FN:37,(anonymous_2)
@@ -545,7 +545,7 @@ BRF:14
 BRH:11
 end_of_record
 TN:
-SF:src/pages/Explore/Explore.tsx
+SF:src\pages\Explore\Explore.tsx
 FN:8,Explore
 FN:21,(anonymous_1)
 FN:24,(anonymous_2)
@@ -582,7 +582,7 @@ BRF:6
 BRH:0
 end_of_record
 TN:
-SF:src/pages/Home/Home.tsx
+SF:src\pages\Home\Home.tsx
 FN:4,(anonymous_0)
 FNF:1
 FNH:0
@@ -595,7 +595,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:src/pages/User/ForgotPassword.tsx
+SF:src\pages\User\ForgotPassword.tsx
 FN:8,ForgotPassword
 FN:11,(anonymous_1)
 FN:13,(anonymous_2)
@@ -620,7 +620,7 @@ BRF:0
 BRH:0
 end_of_record
 TN:
-SF:src/pages/User/Profile.tsx
+SF:src\pages\User\Profile.tsx
 FN:12,Profile
 FN:22,(anonymous_1)
 FN:35,(anonymous_2)
@@ -681,7 +681,7 @@ BRF:12
 BRH:0
 end_of_record
 TN:
-SF:src/pages/User/SignIn.tsx
+SF:src\pages\User\SignIn.tsx
 FN:10,SignIn
 FN:20,(anonymous_1)
 FN:21,(anonymous_2)
@@ -722,7 +722,7 @@ BRF:4
 BRH:0
 end_of_record
 TN:
-SF:src/pages/User/SignUp.tsx
+SF:src\pages\User\SignUp.tsx
 FN:17,SignUp
 FN:28,(anonymous_1)
 FN:29,(anonymous_2)

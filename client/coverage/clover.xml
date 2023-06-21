@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1687362740296" clover="3.2.0">
-  <project timestamp="1687362740296" name="All files">
+<coverage generated="1687363453831" clover="3.2.0">
+  <project timestamp="1687363453831" name="All files">
     <metrics statements="285" coveredstatements="64" conditionals="92" coveredconditionals="31" methods="80" coveredmethods="21" elements="457" coveredelements="116" complexity="0" loc="285" ncloc="285" packages="14" files="26" classes="26"/>
     <package name="src">
       <metrics statements="36" coveredstatements="1" conditionals="8" coveredconditionals="0" methods="8" coveredmethods="0"/>
-      <file name="App.tsx" path="/Users/8ventures/Developer/Codeworks/legacy-project/smart-trip/client/src/App.tsx">
+      <file name="App.tsx" path="C:\Users\Angus\Codeworks\Legacy Project\smart-trip\client\src\App.tsx">
         <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
         <line num="17" count="0" type="stmt"/>
       </file>
-      <file name="TravelAdvisorAPI.ts" path="/Users/8ventures/Developer/Codeworks/legacy-project/smart-trip/client/src/TravelAdvisorAPI.ts">
+      <file name="TravelAdvisorAPI.ts" path="C:\Users\Angus\Codeworks\Legacy Project\smart-trip\client\src\TravelAdvisorAPI.ts">
         <metrics statements="6" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
         <line num="3" count="0" type="stmt"/>
         <line num="4" count="0" type="stmt"/>
@@ -17,23 +17,23 @@
         <line num="20" count="0" type="stmt"/>
         <line num="22" count="0" type="stmt"/>
       </file>
-      <file name="firebase.config.ts" path="/Users/8ventures/Developer/Codeworks/legacy-project/smart-trip/client/src/firebase.config.ts">
+      <file name="firebase.config.ts" path="C:\Users\Angus\Codeworks\Legacy Project\smart-trip\client\src\firebase.config.ts">
         <metrics statements="3" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="4" count="0" type="stmt"/>
         <line num="14" count="0" type="stmt"/>
         <line num="15" count="0" type="stmt"/>
       </file>
-      <file name="index.tsx" path="/Users/8ventures/Developer/Codeworks/legacy-project/smart-trip/client/src/index.tsx">
+      <file name="index.tsx" path="C:\Users\Angus\Codeworks\Legacy Project\smart-trip\client\src\index.tsx">
         <metrics statements="3" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="8" count="0" type="stmt"/>
         <line num="9" count="0" type="stmt"/>
         <line num="15" count="0" type="stmt"/>
       </file>
-      <file name="mockPlaces.ts" path="/Users/8ventures/Developer/Codeworks/legacy-project/smart-trip/client/src/mockPlaces.ts">
+      <file name="mockPlaces.ts" path="C:\Users\Angus\Codeworks\Legacy Project\smart-trip\client\src\mockPlaces.ts">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="3" count="2" type="stmt"/>
       </file>
-      <file name="reportWebVitals.ts" path="/Users/8ventures/Developer/Codeworks/legacy-project/smart-trip/client/src/reportWebVitals.ts">
+      <file name="reportWebVitals.ts" path="C:\Users\Angus\Codeworks\Legacy Project\smart-trip\client\src\reportWebVitals.ts">
         <metrics statements="8" coveredstatements="0" conditionals="4" coveredconditionals="0" methods="2" coveredmethods="0"/>
         <line num="3" count="0" type="stmt"/>
         <line num="4" count="0" type="cond" truecount="0" falsecount="4"/>
@@ -44,10 +44,10 @@
         <line num="9" count="0" type="stmt"/>
         <line num="10" count="0" type="stmt"/>
       </file>
-      <file name="types.ts" path="/Users/8ventures/Developer/Codeworks/legacy-project/smart-trip/client/src/types.ts">
+      <file name="types.ts" path="C:\Users\Angus\Codeworks\Legacy Project\smart-trip\client\src\types.ts">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       </file>
-      <file name="useAuthStatus.ts" path="/Users/8ventures/Developer/Codeworks/legacy-project/smart-trip/client/src/useAuthStatus.ts">
+      <file name="useAuthStatus.ts" path="C:\Users\Angus\Codeworks\Legacy Project\smart-trip\client\src\useAuthStatus.ts">
         <metrics statements="14" coveredstatements="0" conditionals="4" coveredconditionals="0" methods="4" coveredmethods="0"/>
         <line num="4" count="0" type="stmt"/>
         <line num="5" count="0" type="stmt"/>
@@ -67,7 +67,7 @@
     </package>
     <package name="src.apiService">
       <metrics statements="10" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="1" coveredmethods="0"/>
-      <file name="openAI.apiService.ts" path="/Users/8ventures/Developer/Codeworks/legacy-project/smart-trip/client/src/apiService/openAI.apiService.ts">
+      <file name="openAI.apiService.ts" path="C:\Users\Angus\Codeworks\Legacy Project\smart-trip\client\src\apiService\openAI.apiService.ts">
         <metrics statements="10" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="1" coveredmethods="0"/>
         <line num="32" count="0" type="stmt"/>
         <line num="39" count="0" type="stmt"/>
@@ -83,7 +83,7 @@
     </package>
     <package name="src.components">
       <metrics statements="20" coveredstatements="0" conditionals="8" coveredconditionals="0" methods="3" coveredmethods="0"/>
-      <file name="OAuth.tsx" path="/Users/8ventures/Developer/Codeworks/legacy-project/smart-trip/client/src/components/OAuth.tsx">
+      <file name="OAuth.tsx" path="C:\Users\Angus\Codeworks\Legacy Project\smart-trip\client\src\components\OAuth.tsx">
         <metrics statements="15" coveredstatements="0" conditionals="4" coveredconditionals="0" methods="2" coveredmethods="0"/>
         <line num="10" count="0" type="stmt"/>
         <line num="11" count="0" type="stmt"/>
@@ -101,7 +101,7 @@
         <line num="34" count="0" type="stmt"/>
         <line num="38" count="0" type="stmt"/>
       </file>
-      <file name="PrivateRoute.tsx" path="/Users/8ventures/Developer/Codeworks/legacy-project/smart-trip/client/src/components/PrivateRoute.tsx">
+      <file name="PrivateRoute.tsx" path="C:\Users\Angus\Codeworks\Legacy Project\smart-trip\client\src\components\PrivateRoute.tsx">
         <metrics statements="5" coveredstatements="0" conditionals="4" coveredconditionals="0" methods="1" coveredmethods="0"/>
         <line num="6" count="0" type="stmt"/>
         <line num="7" count="0" type="stmt"/>
@@ -112,7 +112,7 @@
     </package>
     <package name="src.components.Header">
       <metrics statements="4" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
-      <file name="Header.tsx" path="/Users/8ventures/Developer/Codeworks/legacy-project/smart-trip/client/src/components/Header/Header.tsx">
+      <file name="Header.tsx" path="C:\Users\Angus\Codeworks\Legacy Project\smart-trip\client\src\components\Header\Header.tsx">
         <metrics statements="4" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
         <line num="14" count="1" type="stmt"/>
         <line num="15" count="2" type="stmt"/>
@@ -122,7 +122,7 @@
     </package>
     <package name="src.components.List">
       <metrics statements="4" coveredstatements="4" conditionals="2" coveredconditionals="2" methods="3" coveredmethods="3"/>
-      <file name="List.tsx" path="/Users/8ventures/Developer/Codeworks/legacy-project/smart-trip/client/src/components/List/List.tsx">
+      <file name="List.tsx" path="C:\Users\Angus\Codeworks\Legacy Project\smart-trip\client\src\components\List\List.tsx">
         <metrics statements="4" coveredstatements="4" conditionals="2" coveredconditionals="2" methods="3" coveredmethods="3"/>
         <line num="15" count="1" type="stmt"/>
         <line num="16" count="3" type="stmt"/>
@@ -132,7 +132,7 @@
     </package>
     <package name="src.components.Map">
       <metrics statements="45" coveredstatements="0" conditionals="10" coveredconditionals="0" methods="9" coveredmethods="0"/>
-      <file name="Map.tsx" path="/Users/8ventures/Developer/Codeworks/legacy-project/smart-trip/client/src/components/Map/Map.tsx">
+      <file name="Map.tsx" path="C:\Users\Angus\Codeworks\Legacy Project\smart-trip\client\src\components\Map\Map.tsx">
         <metrics statements="44" coveredstatements="0" conditionals="10" coveredconditionals="0" methods="9" coveredmethods="0"/>
         <line num="19" count="0" type="stmt"/>
         <line num="25" count="0" type="stmt"/>
@@ -179,14 +179,14 @@
         <line num="137" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="154" count="0" type="stmt"/>
       </file>
-      <file name="mapStyling.ts" path="/Users/8ventures/Developer/Codeworks/legacy-project/smart-trip/client/src/components/Map/mapStyling.ts">
+      <file name="mapStyling.ts" path="C:\Users\Angus\Codeworks\Legacy Project\smart-trip\client\src\components\Map\mapStyling.ts">
         <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="2" count="0" type="stmt"/>
       </file>
     </package>
     <package name="src.components.Navbar">
       <metrics statements="9" coveredstatements="8" conditionals="14" coveredconditionals="12" methods="5" coveredmethods="4"/>
-      <file name="Navbar.tsx" path="/Users/8ventures/Developer/Codeworks/legacy-project/smart-trip/client/src/components/Navbar/Navbar.tsx">
+      <file name="Navbar.tsx" path="C:\Users\Angus\Codeworks\Legacy Project\smart-trip\client\src\components\Navbar\Navbar.tsx">
         <metrics statements="9" coveredstatements="8" conditionals="14" coveredconditionals="12" methods="5" coveredmethods="4"/>
         <line num="9" count="5" type="stmt"/>
         <line num="10" count="5" type="stmt"/>
@@ -201,7 +201,7 @@
     </package>
     <package name="src.components.PlaceDetails">
       <metrics statements="5" coveredstatements="5" conditionals="6" coveredconditionals="5" methods="4" coveredmethods="4"/>
-      <file name="PlaceDetails.tsx" path="/Users/8ventures/Developer/Codeworks/legacy-project/smart-trip/client/src/components/PlaceDetails/PlaceDetails.tsx">
+      <file name="PlaceDetails.tsx" path="C:\Users\Angus\Codeworks\Legacy Project\smart-trip\client\src\components\PlaceDetails\PlaceDetails.tsx">
         <metrics statements="5" coveredstatements="5" conditionals="6" coveredconditionals="5" methods="4" coveredmethods="4"/>
         <line num="9" count="2" type="stmt"/>
         <line num="11" count="4" type="stmt"/>
@@ -212,7 +212,7 @@
     </package>
     <package name="src.components.Search">
       <metrics statements="29" coveredstatements="11" conditionals="2" coveredconditionals="1" methods="8" coveredmethods="2"/>
-      <file name="Search.tsx" path="/Users/8ventures/Developer/Codeworks/legacy-project/smart-trip/client/src/components/Search/Search.tsx">
+      <file name="Search.tsx" path="C:\Users\Angus\Codeworks\Legacy Project\smart-trip\client\src\components\Search\Search.tsx">
         <metrics statements="29" coveredstatements="11" conditionals="2" coveredconditionals="1" methods="8" coveredmethods="2"/>
         <line num="16" count="2" type="stmt"/>
         <line num="17" count="6" type="stmt"/>
@@ -247,7 +247,7 @@
     </package>
     <package name="src.components.Spinner">
       <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-      <file name="Spinner.tsx" path="/Users/8ventures/Developer/Codeworks/legacy-project/smart-trip/client/src/components/Spinner/Spinner.tsx">
+      <file name="Spinner.tsx" path="C:\Users\Angus\Codeworks\Legacy Project\smart-trip\client\src\components\Spinner\Spinner.tsx">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="4" count="2" type="stmt"/>
         <line num="5" count="3" type="stmt"/>
@@ -255,7 +255,7 @@
     </package>
     <package name="src.pages.Chat">
       <metrics statements="32" coveredstatements="30" conditionals="14" coveredconditionals="11" methods="8" coveredmethods="6"/>
-      <file name="Chat.tsx" path="/Users/8ventures/Developer/Codeworks/legacy-project/smart-trip/client/src/pages/Chat/Chat.tsx">
+      <file name="Chat.tsx" path="C:\Users\Angus\Codeworks\Legacy Project\smart-trip\client\src\pages\Chat\Chat.tsx">
         <metrics statements="32" coveredstatements="30" conditionals="14" coveredconditionals="11" methods="8" coveredmethods="6"/>
         <line num="21" count="13" type="stmt"/>
         <line num="22" count="13" type="stmt"/>
@@ -293,7 +293,7 @@
     </package>
     <package name="src.pages.Explore">
       <metrics statements="14" coveredstatements="0" conditionals="6" coveredconditionals="0" methods="4" coveredmethods="0"/>
-      <file name="Explore.tsx" path="/Users/8ventures/Developer/Codeworks/legacy-project/smart-trip/client/src/pages/Explore/Explore.tsx">
+      <file name="Explore.tsx" path="C:\Users\Angus\Codeworks\Legacy Project\smart-trip\client\src\pages\Explore\Explore.tsx">
         <metrics statements="14" coveredstatements="0" conditionals="6" coveredconditionals="0" methods="4" coveredmethods="0"/>
         <line num="10" count="0" type="stmt"/>
         <line num="11" count="0" type="stmt"/>
@@ -313,7 +313,7 @@
     </package>
     <package name="src.pages.Home">
       <metrics statements="2" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
-      <file name="Home.tsx" path="/Users/8ventures/Developer/Codeworks/legacy-project/smart-trip/client/src/pages/Home/Home.tsx">
+      <file name="Home.tsx" path="C:\Users\Angus\Codeworks\Legacy Project\smart-trip\client\src\pages\Home\Home.tsx">
         <metrics statements="2" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
         <line num="4" count="0" type="stmt"/>
         <line num="6" count="0" type="stmt"/>
@@ -321,7 +321,7 @@
     </package>
     <package name="src.pages.User">
       <metrics statements="73" coveredstatements="0" conditionals="20" coveredconditionals="0" methods="23" coveredmethods="0"/>
-      <file name="ForgotPassword.tsx" path="/Users/8ventures/Developer/Codeworks/legacy-project/smart-trip/client/src/pages/User/ForgotPassword.tsx">
+      <file name="ForgotPassword.tsx" path="C:\Users\Angus\Codeworks\Legacy Project\smart-trip\client\src\pages\User\ForgotPassword.tsx">
         <metrics statements="10" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="0"/>
         <line num="9" count="0" type="stmt"/>
         <line num="11" count="0" type="stmt"/>
@@ -334,7 +334,7 @@
         <line num="20" count="0" type="stmt"/>
         <line num="24" count="0" type="stmt"/>
       </file>
-      <file name="Profile.tsx" path="/Users/8ventures/Developer/Codeworks/legacy-project/smart-trip/client/src/pages/User/Profile.tsx">
+      <file name="Profile.tsx" path="C:\Users\Angus\Codeworks\Legacy Project\smart-trip\client\src\pages\User\Profile.tsx">
         <metrics statements="24" coveredstatements="0" conditionals="12" coveredconditionals="0" methods="8" coveredmethods="0"/>
         <line num="13" count="0" type="stmt"/>
         <line num="14" count="0" type="stmt"/>
@@ -361,7 +361,7 @@
         <line num="82" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="83" count="0" type="stmt"/>
       </file>
-      <file name="SignIn.tsx" path="/Users/8ventures/Developer/Codeworks/legacy-project/smart-trip/client/src/pages/User/SignIn.tsx">
+      <file name="SignIn.tsx" path="C:\Users\Angus\Codeworks\Legacy Project\smart-trip\client\src\pages\User\SignIn.tsx">
         <metrics statements="16" coveredstatements="0" conditionals="4" coveredconditionals="0" methods="6" coveredmethods="0"/>
         <line num="11" count="0" type="stmt"/>
         <line num="12" count="0" type="stmt"/>
@@ -380,7 +380,7 @@
         <line num="47" count="0" type="stmt"/>
         <line num="78" count="0" type="stmt"/>
       </file>
-      <file name="SignUp.tsx" path="/Users/8ventures/Developer/Codeworks/legacy-project/smart-trip/client/src/pages/User/SignUp.tsx">
+      <file name="SignUp.tsx" path="C:\Users\Angus\Codeworks\Legacy Project\smart-trip\client\src\pages\User\SignUp.tsx">
         <metrics statements="23" coveredstatements="0" conditionals="4" coveredconditionals="0" methods="6" coveredmethods="0"/>
         <line num="18" count="0" type="stmt"/>
         <line num="19" count="0" type="stmt"/>
