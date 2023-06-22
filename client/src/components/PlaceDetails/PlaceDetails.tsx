@@ -1,5 +1,5 @@
 import { FaPhoneAlt, FaMapMarkerAlt } from "react-icons/fa";
-import styles from "./styles.module.css"
+import'./PlaceDetails.css'
 import { Place } from "@/src/types";
 import React from "react";
 type PlaceDetailsProps = {
@@ -9,9 +9,9 @@ type PlaceDetailsProps = {
 const PlaceDetails = ({ place }: PlaceDetailsProps) => {
 
   return (
-    <div data-testid='place-details' className={styles.placeCard}>
+    <div data-testid='place-details' className='placeCard'>
       <div
-        className={styles.cardMedia}
+        className='cardMedia'
         style={{
           backgroundImage: `url(${
             place.photo
@@ -21,35 +21,35 @@ const PlaceDetails = ({ place }: PlaceDetailsProps) => {
         }}
         title={place.name}
       />
-      <div className={styles.cardContent}>
-        <h2 className={styles.placeName}>{place.name}</h2>
-        <div className={styles.flexBetween}>
+      <div className='cardContent'>
+        <h2 className='placeName'>{place.name}</h2>
+        <div className='flexBetween'>
 
         </div>
-        <div className={styles.flexBetween}>
+        <div className='flexBetween'>
           <h3>Rating</h3>
           <h3>
             {place.rating} out of {place.num_reviews} reviews
           </h3>
         </div>
         {place?.cuisine?.map(({ name }) => (
-          <div data-testid='cuisine' key={name} className={styles.chip}>
+          <div data-testid='cuisine' key={name} className='chip'>
             {name}
           </div>
         ))}
         {place?.address && (
-          <h4 className={`${styles.subtitle}, ${styles.flexBetween}`}>
+          <h4 className={`spacing, flexBetween}`}>
             <FaMapMarkerAlt />
             {place.address}
           </h4>
         )}
         {place?.phone && (
-          <h4 className={`${styles.spacing}, ${styles.flexBetween}`}>
+          <h4 className={`spacing, flexBetween}`}>
             <FaPhoneAlt />
             {place.phone}
           </h4>
         )}
-        <div className={styles.cardActions}>
+        <div className='cardActions'>
           <button onClick={() => window.open(place.web_url, "_blank")}>
             Trip Advisor
           </button>

@@ -153,7 +153,7 @@ const Map = ({
           }
           onCloseClick={() => setSelectedMarker(undefined)}
         >
-          <div>
+          <div data-testid='marker'>
             <h3>{selectedMarker.name}</h3>
             <p>{selectedMarker.address}</p>
           </div>

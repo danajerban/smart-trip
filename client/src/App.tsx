@@ -3,7 +3,6 @@ import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import Navbar from './components/Navbar/Navbar'
 import PrivateRoute from './components/PrivateRoute'
-
 import Explore from './pages/Explore/Explore'
 import ChatGPT from './pages/Chat/Chat'
 import Home from './pages/Home/Home'
@@ -12,11 +11,12 @@ import SignIn from './pages/User/SignIn'
 import SignUp from './pages/User/SignUp'
 import ForgotPassword from './pages/User/ForgotPassword'
 import React from 'react'
+
 function App() {
 
   return (
     <>
-      <div className='app-container'>
+      <div className='app-container' data-testid='app-component'>
         <div className='page-container'>
         <Routes>
           <Route path='/' element={<Home />} />

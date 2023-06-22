@@ -1,59 +1,67 @@
-import { render, screen, waitFor } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
 import Map from './Map';
-import { mockPlaces } from '../../mockPlaces';
-import '@testing-library/jest-dom'
+import React from 'react';
+import { mockPlaces } from '@/src/mockPlaces';
 
-const places = mockPlaces;
+jest.mock('@react-google-maps/api', () => ({
+  GoogleMap: jest.fn(({ children }) => <div>{children}</div>),
+  InfoWindow: jest.fn(({ children }) => <div>{children}</div>),
+  Marker: jest.fn(({ children }) => <div>{children}</div>),
+  useJsApiLoader: jest.fn(),
+}));
 
-// describe('Map', () => {
-//   test('renders the map component', () => {
-//     render(
-//       <Map
-//         setCoordinates={jest.fn()}
-//         setBounds={jest.fn()}
-//         places={[]}
-//         selectedSearch={null}
-//       />
-//     );
+describe('Map', () => {
+  beforeEach(() => {
+    jest.clearAllMocks();
+  });
 
-//     const googleMap = screen.getByTestId('google-map');
-//     expect(googleMap).toBeInTheDocument();
-//   });
+  it('renders the map component', () => {
+    render(
+      <Map
+        setCoordinates={jest.fn()}
+        setBounds={jest.fn()}
+        places={[]}
+        selectedSearch={null}
+      />
+    );
 
-//   test('renders markers on the map', () => {
+    const mapElement = screen.getByTestId('google-map');
+    expect(mapElement).toBeInTheDocument();
+  });
 
-//     render(
-//       <Map
-//         setCoordinates={jest.fn()}
-//         setBounds={jest.fn()}
-//         places={places}
-//         selectedSearch={null}
-//       />
-//     );
+  it('renders markers for each place', () => {
+    const places = mockPlaces;
 
-//     const markers = screen.getAllByTestId('marker');
-//     expect(markers.length).toBe(places.length);
-//   });
+    render(
+      <Map
+        setCoordinates={jest.fn()}
+        setBounds={jest.fn()}
+        places={places}
+        selectedSearch={null}
+      />
+    );
 
-//   test('displays info window when a marker is clicked', async () => {
+    const markers = screen.getAllByTestId('marker');
+    expect(markers).toHaveLength(places.length);
+  });
 
-//     render(
-//       <Map
-//         setCoordinates={jest.fn()}
-//         setBounds={jest.fn()}
-//         places={places}
-//         selectedSearch={null}
-//       />
-//     );
+  it('displays info window when marker is clicked', () => {
+    const places = mockPlaces
 
-//     expect(screen.queryByText(places[0].name)).not.toBeInTheDocument();
+    render(
+      <Map
+        setCoordinates={jest.fn()}
+        setBounds={jest.fn()}
+        places={places}
+        selectedSearch={null}
+      />
+    );
 
-//     const marker = screen.getByTestId('marker');
-//     marker.click();
+    const marker = screen.getAllByTestId('marker')[0];
+    fireEvent.click(marker);
 
-//     await waitFor(() => {
-//       expect(screen.getByText(places[0].name)).toBeInTheDocument();
-//       expect(screen.getByText(places[0].address)).toBeInTheDocument();
-//     });
-//   });
-// });
+    const infoWindow = screen.getByText('Cafe Couscous - Vege');
+    expect(infoWindow).toBeInTheDocument();
+  });
+
+});

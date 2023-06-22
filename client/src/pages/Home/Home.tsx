@@ -1,13 +1,13 @@
-import styles from "./homeStyles.module.css"
+import "./Home.css"
 import React from "react";
 
 const Home = () => {
 
   return (
 
-      <main className={`${styles.flexHome} ${styles.bodyHome}`}>
-        <div className={`${styles.earth} ${styles.filterHome}`}></div>
-        <div className={styles.space}></div>
+      <main role='main' className='flexHome bodyHome'>
+        <div data-testid='earth' className='earth filterHome'></div>
+        <div data-testid='space' className='space'></div>
       </main>
 
   );

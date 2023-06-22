@@ -28,7 +28,7 @@ function ForgotPassword() {
       </header>
 
       <main>
-        <form onSubmit={onSubmit}>
+        <form role='form' onSubmit={onSubmit}>
           <input
             type='email'
             className='emailInput'
