@@ -10,8 +10,7 @@
     "plugins": [{ "name": "typescript-plugin-css-modules" }],
 
     /* Bundler mode */
-    "moduleResolution": "bundler",
-    "allowImportingTsExtensions": true,
+    "moduleResolution": "bundle",
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     "resolveJsonModule": true,
