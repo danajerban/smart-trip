@@ -3,7 +3,6 @@ import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import Navbar from './components/Navbar/Navbar'
 import PrivateRoute from './components/PrivateRoute'
-
 import Explore from './pages/Explore/Explore'
 import ChatGPT from './pages/Chat/Chat'
 import Home from './pages/Home/Home'
@@ -17,7 +16,7 @@ function App() {
 
   return (
     <>
-      <div className='app-container'>
+      <div className='app-container' data-testid='app-component'>
         <div className='page-container'>
         <Routes>
           <Route path='/' element={<Home />} />

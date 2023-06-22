@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">38.88% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/18</span>
+                <span class='fraction'>7/18</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">25% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/4</span>
+                <span class='fraction'>1/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">16.66% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/6</span>
+                <span class='fraction'>1/6</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">43.75% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/16</span>
+                <span class='fraction'>7/16</span>
             </div>
         
             
@@ -176,34 +176,34 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">5x</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -212,7 +212,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -278,24 +278,24 @@ import { ReactComponent as ArrowRightIcon } from '../../assets/svg/keyboardArrow
 import visibilityIcon from '../../assets/svg/visibilityIcon.svg'
 import './user.css'
 &nbsp;
-function <span class="fstat-no" title="function not covered" >SignIn(</span>) {
-  const [showPassword, setShowPassword] = <span class="cstat-no" title="statement not covered" >useState(false)</span>
-  const [formData, setFormData] = <span class="cstat-no" title="statement not covered" >useState({</span>
+function SignIn() {
+  const [showPassword, setShowPassword] = useState(false)
+  const [formData, setFormData] = useState({
     email: '',
     password: '',
   })
-  const { email, password } = <span class="cstat-no" title="statement not covered" >formData</span>
+  const { email, password } = formData
 &nbsp;
-  const navigate = <span class="cstat-no" title="statement not covered" >useNavigate()</span>
+  const navigate = useNavigate()
 &nbsp;
-  const onChange = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(e</span>: React.ChangeEvent&lt;HTMLInputElement&gt;) =&gt; {</span>
+  const onChange = <span class="fstat-no" title="function not covered" >(e</span>: React.ChangeEvent&lt;HTMLInputElement&gt;) =&gt; {
 <span class="cstat-no" title="statement not covered" >    setFormData(<span class="fstat-no" title="function not covered" >(p</span>revState) =&gt; (<span class="cstat-no" title="statement not covered" >{</span></span>
       ...prevState,
       [e.target.id]: e.target.value,
     }))
   }
 &nbsp;
-  const onSubmit = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >as</span>ync (e: React.SyntheticEvent&lt;HTMLFormElement&gt;) =&gt; {</span>
+  const onSubmit = <span class="fstat-no" title="function not covered" >as</span>ync (e: React.SyntheticEvent&lt;HTMLFormElement&gt;) =&gt; {
 <span class="cstat-no" title="statement not covered" >    e.preventDefault()</span>
 &nbsp;
 <span class="cstat-no" title="statement not covered" >    try {</span>
@@ -315,7 +315,7 @@ function <span class="fstat-no" title="function not covered" >SignIn(</span>) {
     }
   }
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  return (</span>
+  return (
     &lt;&gt;
       &lt;div className='pageContainer'&gt;
         &lt;header&gt;
@@ -334,7 +334,7 @@ function <span class="fstat-no" title="function not covered" >SignIn(</span>) {
 &nbsp;
           &lt;div className='passwordInputDiv'&gt;
             &lt;input
-              type={showPassword ? 'text' : 'password'}
+              type={showPassword ? <span class="branch-0 cbranch-no" title="branch not covered" >'text' </span>: 'password'}
               className='passwordInput'
               placeholder='Password'
               id='password'
@@ -379,7 +379,7 @@ export default SignIn</pre></td></tr></table></pre>
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-06-21T16:34:12.866Z
+                at 2023-06-22T08:34:50.559Z
             </div>
         <script src="../../../prettify.js"></script>
         <script>

@@ -73,7 +73,7 @@ function SignUp() {
           <p className='pageHeader'>Welcome!</p>
         </header>
 
-        <form onSubmit={onSubmit}>
+        <form role='form' onSubmit={onSubmit}>
           <input
             type='text'
             className='nameInput'

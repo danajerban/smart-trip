@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">73.33% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/15</span>
+                <span class='fraction'>11/15</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">50% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/6</span>
+                <span class='fraction'>3/6</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">50% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/4</span>
+                <span class='fraction'>2/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">78.57% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/14</span>
+                <span class='fraction'>11/14</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line medium'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -131,29 +131,29 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -188,23 +188,23 @@ import List from "../../components/List/List";
 import Map from "../../components/Map/Map";
 import { Coordinates, Place, Bounds } from "../../types";
 &nbsp;
-function <span class="fstat-no" title="function not covered" >Explore(</span>) {
+function Explore() {
 &nbsp;
-  const [places, setPlaces] = <span class="cstat-no" title="statement not covered" >useState&lt;Place[]&gt;([]);</span>
-  const [bounds, setBounds] = <span class="cstat-no" title="statement not covered" >useState&lt;Bounds&gt;(</span>
+  const [places, setPlaces] = useState&lt;Place[]&gt;([]);
+  const [bounds, setBounds] = useState&lt;Bounds&gt;(
     {ne:{lat: 52.62477179506519,lng: 13.497221820955055},
     sw:
     {lat :52.42477179506519,
     lng : 13.297221820955055}});
-  const [coordinates, setCoordinates] = <span class="cstat-no" title="statement not covered" >useState({});</span>
-  const [type, setType] = <span class="cstat-no" title="statement not covered" >useState("restaurants");</span>
-  const [loading, setLoading] = <span class="cstat-no" title="statement not covered" >useState(false);</span>
-  const [selectedSearch, setSelectedSearch] = <span class="cstat-no" title="statement not covered" >useState&lt;Coordinates | null&gt;(null);</span>
+  const [coordinates, setCoordinates] = useState({});
+  const [type, setType] = useState("restaurants");
+  const [loading, setLoading] = useState(false);
+  const [selectedSearch, setSelectedSearch] = useState&lt;Coordinates | null&gt;(null);
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  useEffect(<span class="fstat-no" title="function not covered" >()</span> =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >    if (bounds.sw &amp;&amp; bounds.ne) {</span>
-<span class="cstat-no" title="statement not covered" >      setLoading(true);</span>
-<span class="cstat-no" title="statement not covered" >      getPlacesData(type, bounds).then(<span class="fstat-no" title="function not covered" >(d</span>ata) =&gt; {</span>
+  useEffect(() =&gt; {
+    <span class="missing-if-branch" title="else path not taken" >E</span>if (bounds.sw &amp;&amp; bounds.ne) {
+      setLoading(true);
+      getPlacesData(type, bounds).then(<span class="fstat-no" title="function not covered" >(d</span>ata) =&gt; {
 <span class="cstat-no" title="statement not covered" >        console.log(data)</span>
 <span class="cstat-no" title="statement not covered" >        setPlaces(data?.filter(<span class="fstat-no" title="function not covered" >(p</span>lace: Place) =&gt; <span class="cstat-no" title="statement not covered" >place.name &amp;&amp; Number(place.num_reviews) &gt; 0)</span>);</span>
 <span class="cstat-no" title="statement not covered" >        setLoading(false);</span>
@@ -212,8 +212,8 @@ function <span class="fstat-no" title="function not covered" >Explore(</span>) {
     }
   }, [type, bounds]);
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  return (</span>
-    &lt;&gt;
+  return (
+    &lt;div data-testid='explore-component'&gt;
       &lt;Header
         setCoordinates={setCoordinates}
         setSelectedSearch={setSelectedSearch}
@@ -236,7 +236,7 @@ function <span class="fstat-no" title="function not covered" >Explore(</span>) {
           /&gt;
         &lt;/div&gt;
       &lt;/div&gt;
-    &lt;/&gt;
+    &lt;/div&gt;
   );
 }
 export default Explore;
@@ -247,7 +247,7 @@ export default Explore;
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-06-21T16:34:12.866Z
+                at 2023-06-22T08:34:50.559Z
             </div>
         <script src="../../../prettify.js"></script>
         <script>

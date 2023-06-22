@@ -30,7 +30,7 @@ function Explore() {
   }, [type, bounds]);
 
   return (
-    <>
+    <div data-testid='explore-component'>
       <Header
         setCoordinates={setCoordinates}
         setSelectedSearch={setSelectedSearch}
@@ -53,7 +53,7 @@ function Explore() {
           />
         </div>
       </div>
-    </>
+    </div>
   );
 }
 export default Explore;

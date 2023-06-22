@@ -14,10 +14,10 @@ type ListParams = {
 
 const List = ({ places, type, setType, loading}: ListParams) => {
   return (
-    <div className='container'>
+    <div data-testid='list-component' className='container'>
       <h2 className='hWhat'>What are you looking for ?</h2>
       {loading ? (
-        <div className='loading'>
+        <div data-testid='loading-spinner' className='loading'>
           <Spinner/>
         </div>
       ) : (
