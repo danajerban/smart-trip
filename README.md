@@ -6,6 +6,7 @@ Enjoy!
 npm run:start backend -> starts server, listening at port 8000
 npm run:start frontend -> starts this create-my-react app
 
+-JS initially then refactored in TS
 
 Explore is like the app for the components in folders - contains all the props to pass down to them
 Chat is its own component - for simplicity and also did this on side, and then connected everything together
