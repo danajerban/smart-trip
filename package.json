@@ -1,6 +1,6 @@
 {
   "devDependencies": {
     "jest": "^29.5.0",
-    "msw": "^1.2.2"
+    "msw": "^2.14.6"
   }
 }
